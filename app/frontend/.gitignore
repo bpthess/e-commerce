@@ -24,3 +24,5 @@ yarn-error.log*
 
 /Dockerfile.dev
 /Dockerfile.txt
+
+../QuestionButton.tsx
