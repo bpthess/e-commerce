@@ -1,0 +1,16 @@
+{
+  "common": {
+    "Ko": "KO",
+    "En": "EN"
+  },
+  "menu": {
+    "IMenuDashboard": "대시보드",
+    "IMenuSolving": "시험응시",
+    "IMenuCommunity": "커뮤니티",
+    "IMenuAdmin": "관리자"
+  },
+  "ISolving": "문제풀기",
+  "IMyPage": "마이페이지",
+  "ISearchPlaceholder": "Search..",
+  "ISearchSubmit": "검색"
+}
