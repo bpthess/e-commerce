@@ -1,24 +1,37 @@
-import Data from "./data";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductScreen from "./screens/ProductScreen";
+import HomeScreen from "./screens/HomeScreen";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import i18n from "./i18n";
+// import Translation from "./i18n/Translation";
+// import styled from "styled-components";
 
 function App() {
+  useEffect(() => {
+    const appStarted = async () => {
+      await i18n.changeLanguage();
+    };
+    appStarted();
+  }, []);
+
+  useEffect(() => {}, []);
   return (
-    <div className="App">
-      <header>
-        <a href="/">amazona</a>
-      </header>
-      <main>
-        <h1>Featured Products</h1>
-        {Data.products.map((product) => {
-          return (
-            <div key={product.slug}>
-              <img src={product.image} alt={product.name} />
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-            </div>
-          );
-        })}
-      </main>
-    </div>
+    <BrowserRouter>
+      <div>
+        <header>
+          <Link to="/">amazona</Link>
+        </header>
+        <main>
+          {/* Todo: 다국어 버튼 UI 변경 */}
+          {/* <Translation /> */}
+          <Routes>
+            <Route path="/product/:slug" element={<ProductScreen />} />
+            <Route path="/" element={<HomeScreen />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
