@@ -1,0 +1,16 @@
+{
+  "common": {
+    "Ko": "KO",
+    "En": "EN"
+  },
+  "menu": {
+    "IMenuDashboard": "Dashboard",
+    "IMenuSolving": "TestSolving",
+    "IMenuCommunity": "Community",
+    "IMenuAdmin": "Admin"
+  },
+  "ISolving": "TestSolving",
+  "IMyPage": "MyPage",
+  "ISearchPlaceholder": "Search..",
+  "ISearchSubmit": "Submit"
+}

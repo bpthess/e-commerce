@@ -23,6 +23,8 @@ RUN npm install @types/styled-components
 RUN npm install @types/react-dom
 RUN npm install react-i18next i18next --save
 RUN npm install react-i18next @types/react-i18next i18next @types/i18next
+RUN npm install axios
+RUN npm install http-proxy-middleware
 
 
 COPY Dockerfile.dev /$proj/Dockerfile.dev
