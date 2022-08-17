@@ -1,12 +1,13 @@
 import { useEffect, useContext, useReducer } from "react";
 import { Link } from "react-router-dom";
-import { ProductArea } from "./HomeStyle";
+import { ProductArea, OnStorageCartButton } from "./HomeStyle";
 import { useTranslation } from "react-i18next";
 import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../AppLoading";
 import AppError from "../error/AppError";
 import { Store } from "../Store";
+import { BiShoppingBag } from "react-icons/bi";
 
 // 리듀서 적용
 const reducer = (state, action) => {
@@ -21,23 +22,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
-// 캡슐화, 은닉화
-class Person {
-  constructor(data) {
-    this.data = data;
-  }
-
-  get value() {
-    return `${this._data}`;
-  }
-
-  set value(value) {
-    this._data = value;
-  }
-}
-const title = new Person("Featured Products");
-const submitButton = new Person("Add to cart");
 
 // 뷰
 function HomeScreen() {
@@ -66,11 +50,14 @@ function HomeScreen() {
       });
   }, []);
 
-  const { state, dispatch: cxtDispatch } = useContext(Store);
-  const cartAdditionalHandler = () => {
-    cxtDispatch({
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCartHandler = () => {
+    const existItem = cart.cartItems.find((x) => x._id === products._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    ctxDispatch({
       type: "CART_ADD_ITEM",
-      payload: { ...products, qunitity: 1 },
+      payload: { ...products, quantity },
     });
   };
 
@@ -81,7 +68,9 @@ function HomeScreen() {
       <Helmet>
         <title>E-Commerce</title>
       </Helmet>
-      <h1>{title.data}</h1>
+      <h1 style={{ textAlign: "center", fontWeight: "500", fontSize: "28px" }}>
+        놓치면 후회할 가격
+      </h1>
       <ProductArea>
         {loading ? (
           <AppLoading />
@@ -101,9 +90,9 @@ function HomeScreen() {
                   <p>
                     <strong>{product.price}</strong>
                   </p>
-                  <button onClick={cartAdditionalHandler}>
-                    {submitButton.data}
-                  </button>
+                  <OnStorageCartButton onClick={addToCartHandler}>
+                    <BiShoppingBag />
+                  </OnStorageCartButton>
                 </div>
               </div>
             );
