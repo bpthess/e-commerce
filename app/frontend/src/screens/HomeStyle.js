@@ -7,11 +7,13 @@ export const ProductArea = styled.div`
 
   & .product {
     border: 1px solid #404040;
-    margin: 1rem;
+    margin: 25px 8px;
 
     & img {
       width: 100%;
-      max-width: 350px;
+      height: 100%;
+      max-width: 250px;
+      object-fit: cover;
     }
   }
 
@@ -27,3 +29,5 @@ export const ProductArea = styled.div`
     }
   }
 `;
+
+export const OnStorageCartButton = styled.button``;

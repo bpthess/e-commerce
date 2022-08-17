@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useContext, useReducer, axios } from "react";
+import { useEffect, useContext, useReducer } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../AppLoading";
@@ -21,6 +22,7 @@ const reducer = (state, action) => {
 };
 
 function ProductScreen() {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -43,26 +45,38 @@ function ProductScreen() {
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       })
       .catch((error) => {
-        /* TODO: 에러 중복 및 반환이 안됨, 추후 개선과 리팩토링 필요 */
+        /**
+         * TODO: 에러 중복 및 반환이 안됨, 추후 개선과 리팩토링 필요
+         */
         dispatch({ type: "FETCH_FAIL", payload: getError(error) });
       });
   }, [slug]);
 
-  const { state, dispatch: cxtDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
-  const cartAdditionalHandler = async () => {
-    const isValid = cart.isValid.find((x) => x._id === product._id);
-    const amount = isValid ? isValid.amount + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock < amount) {
+  const addToCartHandler = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    // const { data } = await axios.get(
+    //   `http://localhost:8000/api/products/${product._id}`
+    // );
+    const data = () => {
+      try {
+        axios.get(`/api/products/${product._id}`);
+      } catch (error) {
+        error(getError(error));
+      }
+    };
+    if (data.countInStock < quantity) {
       window.alert("Sorry. Product is out of stock");
       return;
     }
-
-    cxtDispatch({
+    ctxDispatch({
       type: "CART_ADD_ITEM",
-      payload: { ...product, qunitity: 1 },
+      payload: { ...product, quantity },
     });
+
+    navigate("/cart");
   };
 
   return loading ? (
@@ -78,7 +92,9 @@ function ProductScreen() {
       <img src={product.image} alt={product.name} />
       <p>Price : ${product.price}</p>
       <p>{product.description}</p>
-      <button onClick={cartAdditionalHandler}>Add to Cart</button>
+      {/* {product.countInStock > 0 && ( */}
+      <button onClick={addToCartHandler}>Add to Cart</button>
+      {/* )} */}
     </div>
   );
 }
