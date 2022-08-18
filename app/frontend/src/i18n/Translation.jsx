@@ -1,16 +1,18 @@
-import React from "react";
+import i18next from "../i18n";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import i18next from "../i18n";
 
-const LanguageButtonStyles = styled.div`
-  float: left;
-  transform: translateX(calc(20% + 40px));
-  margin-top: -3vh;
+const LanguageButtonWrapper = styled.div`
+  position: absolute;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
   & button {
-    margin: 0 10px;
+    margin: 15px 0;
   }
 `;
+const KoLanguageButton = styled.button``;
+const EnLanguageButton = styled.button``;
 
 const Translation = () => {
   const { t } = useTranslation();
@@ -19,10 +21,14 @@ const Translation = () => {
     i18next.changeLanguage(lang);
   };
   return (
-    <LanguageButtonStyles>
-      <button onClick={() => clickHandler("ko")}>{t("common.Ko")}</button>
-      <button onClick={() => clickHandler("en")}> {t("common.En")}</button>
-    </LanguageButtonStyles>
+    <LanguageButtonWrapper>
+      <KoLanguageButton onClick={() => clickHandler("ko")}>
+        {t("common.Ko")}
+      </KoLanguageButton>
+      <EnLanguageButton onClick={() => clickHandler("en")}>
+        {t("common.En")}
+      </EnLanguageButton>
+    </LanguageButtonWrapper>
   );
 };
 

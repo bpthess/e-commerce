@@ -1,16 +1,20 @@
 {
   "common": {
     "Ko": "KO",
-    "En": "EN"
+    "En": "EN",
+    "Category": "Category"
   },
-  "menu": {
-    "IMenuDashboard": "Dashboard",
-    "IMenuSolving": "TestSolving",
-    "IMenuCommunity": "Community",
-    "IMenuAdmin": "Admin"
+  "helmet": {
+    "Home": "E-Commerce",
+    "Cart": "Shopping Cart"
   },
-  "ISolving": "TestSolving",
-  "IMyPage": "MyPage",
-  "ISearchPlaceholder": "Search..",
-  "ISearchSubmit": "Submit"
+  "Home": {
+    "IHomeSectionMent": "This Product?"
+  },
+  "Product": {
+    "IButtonAddToCart": "Add to Cart"
+  },
+  "Cart": {
+    "": ""
+  }
 }
