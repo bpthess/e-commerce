@@ -114,6 +114,7 @@ function HomeScreen() {
                   </ImgContents>
                 </Link>
                 <ProductsDesc>
+                  <strong className="tag">{product.tag}</strong>
                   <Link to={`/product/${product.slug}`}>
                     <span>{product.name}</span>
                   </Link>

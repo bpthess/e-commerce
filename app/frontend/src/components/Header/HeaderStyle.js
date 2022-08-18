@@ -64,6 +64,7 @@ export const FormContainer = styled.div`
     top: 50%;
     transform: translateY(-50%);
     margin-top: 1px;
+    cursor: pointer;
   }
 `;
 
@@ -84,6 +85,7 @@ export const ItemsIcon = styled.ul`
   & li {
     margin-right: 30px;
     font-size: 24px;
+    cursor: pointer;
   }
   & li:last-child {
     position: relative;
@@ -102,7 +104,7 @@ export const Badge = styled.span`
 
   :before {
     content: "";
-    background-color: crimson;
+    background-color: darkcyan;
     border-radius: 100%;
     position: absolute;
     left: -6px;

@@ -4,11 +4,22 @@ import styled from "styled-components";
 
 const LanguageButtonWrapper = styled.div`
   position: absolute;
-  left: 40px;
+  right: 20px;
+  top: 0;
   display: flex;
-  flex-direction: column;
+  z-index: 5000;
+  :before {
+    content: "";
+    width: 0.5px;
+    height: 12px;
+    background-color: #ccc;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
   & button {
-    margin: 15px 0;
+    margin: 15px 10px;
   }
 `;
 const KoLanguageButton = styled.button``;

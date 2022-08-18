@@ -11,20 +11,24 @@ import {
   Main,
   ProductWrapper,
   ProductContainer,
-  ImgItem,
-  ProductDesction,
+  ImgContent,
+  DescContent,
   DescInner,
   ProductDescHeader,
   ProductDescMiddle,
   ProductDescBottom,
+  CartAmountCounter,
+  CountOuter,
+  AmountCountPlusButton,
+  AmountCountMinusButton,
   TotalMoney,
   LoginAfterBenefits,
-  TechnicalInTheClick,
+  TechnicalCheckIcons,
   InStorageCartButton,
 } from "./ProductStyle";
 import { useTranslation } from "react-i18next";
 import { FiHeart } from "react-icons/fi";
-import { BiBell } from "react-icons/bi";
+import { BiBell, BiPlus, BiMinus } from "react-icons/bi";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -42,7 +46,7 @@ const reducer = (state, action) => {
 
 function ProductScreen() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -104,7 +108,7 @@ function ProductScreen() {
     });
 
     // 상품 추가 시 이동
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   return loading ? (
@@ -118,17 +122,17 @@ function ProductScreen() {
       </Helmet>
       <ProductWrapper>
         <ProductContainer>
-          <ImgItem>
+          <ImgContent>
             <img src={product.image} alt={product.name} />
-          </ImgItem>
-          <ProductDesction>
+          </ImgContent>
+          <DescContent>
             <DescInner>
               <ProductDescHeader>
-                <span>{product.tag}</span>
-                <h1>{product.name}</h1>
-                <p>{product.desc}</p>
-                <p>Price : ${product.price}</p>
-                <p>{t("common.InitLoginAfterBenefits")}</p>
+                <span className="tag">{product.tag}</span>
+                <h2 className="title">{product.name}</h2>
+                <p className="desc">{product.desc}</p>
+                <p className="price">{product.price}</p>
+                <p className="benefit">{t("common.InitLoginAfterBenefits")}</p>
               </ProductDescHeader>
               <ProductDescMiddle>
                 {/* {Array.isArray(product)
@@ -145,23 +149,41 @@ function ProductScreen() {
                 })} */}
               </ProductDescMiddle>
               <ProductDescBottom>
+                <CartAmountCounter>
+                  <span className="amount">구매수량</span>
+                  <CountOuter>
+                    <AmountCountPlusButton>
+                      <BiPlus />
+                    </AmountCountPlusButton>
+                    <span>1</span>
+                    <AmountCountMinusButton>
+                      <BiMinus />
+                    </AmountCountMinusButton>
+                  </CountOuter>
+                </CartAmountCounter>
+
                 <TotalMoney>
-                  {t("product.IProductTotalMoney")} :<p>{product.price}</p>
+                  {t("product.IProductTotalMoney")} :
+                  <strong>{product.price}</strong>
                 </TotalMoney>
                 <LoginAfterBenefits>
-                  <span>{t("IPointCccumulate")}</span>
+                  <span>{t("product.IPointCccumulate")}</span>
                   {t("common.InitLoginAfterBenefits")}
                 </LoginAfterBenefits>
-                <TechnicalInTheClick>
-                  <FiHeart />
-                  <BiBell />
+                <TechnicalCheckIcons>
+                  <i className="ico heart">
+                    <FiHeart />
+                  </i>
+                  <i className="ico bell">
+                    <BiBell />
+                  </i>
                   <InStorageCartButton onClick={storageCartHandler}>
                     {t("product.IButtonAddToCart")}
                   </InStorageCartButton>
-                </TechnicalInTheClick>
+                </TechnicalCheckIcons>
               </ProductDescBottom>
             </DescInner>
-          </ProductDesction>
+          </DescContent>
         </ProductContainer>
       </ProductWrapper>
     </Main>
