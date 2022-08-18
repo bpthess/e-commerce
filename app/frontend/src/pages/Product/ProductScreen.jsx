@@ -7,8 +7,24 @@ import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
 import getError from "../../utils/Utils";
 import { Store } from "../../Store";
-import { Main, ProductWrapper, ProductContainer } from "./ProductStyle";
+import {
+  Main,
+  ProductWrapper,
+  ProductContainer,
+  ImgItem,
+  ProductDesction,
+  DescInner,
+  ProductDescHeader,
+  ProductDescMiddle,
+  ProductDescBottom,
+  TotalMoney,
+  LoginAfterBenefits,
+  TechnicalInTheClick,
+  InStorageCartButton,
+} from "./ProductStyle";
 import { useTranslation } from "react-i18next";
+import { FiHeart } from "react-icons/fi";
+import { BiBell } from "react-icons/bi";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -102,15 +118,50 @@ function ProductScreen() {
       </Helmet>
       <ProductWrapper>
         <ProductContainer>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>Price : ${product.price}</p>
-          <p>{product.description}</p>
-          {/* {product.countInStock > 0 && ( */}
-          <button onClick={storageCartHandler}>
-            {t("Product.IButtonAddToCart")}
-          </button>
-          {/* )} */}
+          <ImgItem>
+            <img src={product.image} alt={product.name} />
+          </ImgItem>
+          <ProductDesction>
+            <DescInner>
+              <ProductDescHeader>
+                <span>{product.tag}</span>
+                <h1>{product.name}</h1>
+                <p>{product.desc}</p>
+                <p>Price : ${product.price}</p>
+                <p>{t("common.InitLoginAfterBenefits")}</p>
+              </ProductDescHeader>
+              <ProductDescMiddle>
+                {/* {Array.isArray(product)
+                  ? product.products.map((desc) => {
+                      return <li>{desc.tag}</li>;
+                    })
+                  : null} */}
+                {/* {product &&
+                  product.products.map((product) => {
+                    return <li>{product.tag}</li>;
+                  })} */}
+                {/* {product.map(() => {
+                  return <li>sdsdsd</li>;
+                })} */}
+              </ProductDescMiddle>
+              <ProductDescBottom>
+                <TotalMoney>
+                  {t("product.IProductTotalMoney")} :<p>{product.price}</p>
+                </TotalMoney>
+                <LoginAfterBenefits>
+                  <span>{t("IPointCccumulate")}</span>
+                  {t("common.InitLoginAfterBenefits")}
+                </LoginAfterBenefits>
+                <TechnicalInTheClick>
+                  <FiHeart />
+                  <BiBell />
+                  <InStorageCartButton onClick={storageCartHandler}>
+                    {t("product.IButtonAddToCart")}
+                  </InStorageCartButton>
+                </TechnicalInTheClick>
+              </ProductDescBottom>
+            </DescInner>
+          </ProductDesction>
         </ProductContainer>
       </ProductWrapper>
     </Main>

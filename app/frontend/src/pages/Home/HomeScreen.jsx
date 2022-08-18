@@ -64,7 +64,6 @@ function HomeScreen() {
       })
       // 패치 실패
       .catch((error) => {
-        console.log(`error: ${error}`);
         dispatch({ type: "FETCH_FAIL", payload: error.message });
       });
   }, []);
@@ -93,7 +92,7 @@ function HomeScreen() {
       <Helmet>
         <title>{t("helmet.Home")}</title>
       </Helmet>
-      <SectionTitle>{t("Home.IHomeSectionMent")}</SectionTitle>
+      <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
       <ProductsWrapper>
         {loading ? (
           <AppLoading />

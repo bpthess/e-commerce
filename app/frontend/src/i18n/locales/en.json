@@ -8,13 +8,13 @@
     "Home": "E-Commerce",
     "Cart": "Shopping Cart"
   },
-  "Home": {
+  "home": {
     "IHomeSectionMent": "This Product?"
   },
-  "Product": {
+  "product": {
     "IButtonAddToCart": "Add to Cart"
   },
-  "Cart": {
+  "cart": {
     "": ""
   }
 }

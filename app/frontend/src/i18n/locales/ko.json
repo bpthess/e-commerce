@@ -2,19 +2,22 @@
   "common": {
     "Ko": "KO",
     "En": "EN",
-    "Category": "카테고리"
+    "Category": "카테고리",
+    "InitLoginAfterBenefits": "로그인 후, 적립 혜택이 제공됩니다."
   },
   "helmet": {
     "Home": "E-Commerce",
     "Cart": "Shopping Cart"
   },
-  "Home": {
+  "home": {
     "IHomeSectionMent": "이 상품 어때요?"
   },
-  "Product": {
-    "IButtonAddToCart": "Add to Cart"
+  "product": {
+    "IProductTotalMoney": "총 상품 금액",
+    "IButtonAddToCart": "장바구니 담기",
+    "IPointCccumulate": "적립"
   },
-  "Cart": {
+  "cart": {
     "": ""
   }
 }
