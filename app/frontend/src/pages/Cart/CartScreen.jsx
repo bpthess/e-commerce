@@ -1,15 +1,17 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Store } from "../Store";
+import { Store } from "../../Store";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export const ListGroup = styled.div``;
 export const MessageLabel = styled.label``;
 export const Total = styled.div``;
 
 function CartScreen() {
-  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { t } = useTranslation();
+  const { state, dispatch: contextDispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
@@ -17,7 +19,7 @@ function CartScreen() {
   return (
     <div>
       <Helmet>
-        <title>Shopping Cart</title>
+        <title>{t("helmet.Cart")}</title>
       </Helmet>
       <h1>Shopping Cart</h1>
       <MessageLabel>

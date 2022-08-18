@@ -14,10 +14,36 @@ import { useContext } from "react";
 import { Store } from "../../Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
   const { state } = useContext(Store);
   const { cart } = state;
+
+  class Route {
+    constructor(id, name, href) {
+      this._id = id;
+      this._name = name;
+      this._href = href;
+    }
+    get id() {
+      return this._id;
+    }
+    get name() {
+      return this._name;
+    }
+    get href() {
+      return this._href;
+    }
+  }
+  const Navi1 = new Route(1, "상품", "");
+  const Navi2 = new Route(2, "베스트", "");
+  const Navi3 = new Route(3, "알뜰쇼핑", "");
+  const Navi4 = new Route(4, "특가/혜택", "");
+
+  const NaviData = [Navi1, Navi2, Navi3, Navi4];
+
   return (
     <Wrap>
       <Container>
@@ -25,15 +51,18 @@ const Header = () => {
           <li>
             <Link to="/">
               <FiMenu />
-              카테고리
+              {t("common.Category")}
             </Link>
           </li>
         </ItemsMenu>
         <ItemsNavi>
-          <li>상품</li>
-          <li>베스트</li>
-          <li>알뜰쇼핑</li>
-          <li>특가/혜택</li>
+          {NaviData.map((title) => {
+            return (
+              <Link to={title.href} key={title.id}>
+                <li>{title.name}</li>
+              </Link>
+            );
+          })}
         </ItemsNavi>
         <ItemsSearchForm>
           <FormContainer>
