@@ -7,8 +7,28 @@ import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
 import getError from "../../utils/Utils";
 import { Store } from "../../Store";
-import { Main, ProductWrapper, ProductContainer } from "./ProductStyle";
+import {
+  Main,
+  ProductWrapper,
+  ProductContainer,
+  ImgContent,
+  DescContent,
+  DescInner,
+  ProductDescHeader,
+  ProductDescMiddle,
+  ProductDescBottom,
+  CartAmountCounter,
+  CountOuter,
+  AmountCountPlusButton,
+  AmountCountMinusButton,
+  TotalMoney,
+  LoginAfterBenefits,
+  TechnicalCheckIcons,
+  InStorageCartButton,
+} from "./ProductStyle";
 import { useTranslation } from "react-i18next";
+import { FiHeart } from "react-icons/fi";
+import { BiBell, BiPlus, BiMinus } from "react-icons/bi";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -26,7 +46,7 @@ const reducer = (state, action) => {
 
 function ProductScreen() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -88,7 +108,7 @@ function ProductScreen() {
     });
 
     // 상품 추가 시 이동
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   return loading ? (
@@ -102,15 +122,68 @@ function ProductScreen() {
       </Helmet>
       <ProductWrapper>
         <ProductContainer>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>Price : ${product.price}</p>
-          <p>{product.description}</p>
-          {/* {product.countInStock > 0 && ( */}
-          <button onClick={storageCartHandler}>
-            {t("Product.IButtonAddToCart")}
-          </button>
-          {/* )} */}
+          <ImgContent>
+            <img src={product.image} alt={product.name} />
+          </ImgContent>
+          <DescContent>
+            <DescInner>
+              <ProductDescHeader>
+                <span className="tag">{product.tag}</span>
+                <h2 className="title">{product.name}</h2>
+                <p className="desc">{product.desc}</p>
+                <p className="price">{product.price}</p>
+                <p className="benefit">{t("common.InitLoginAfterBenefits")}</p>
+              </ProductDescHeader>
+              <ProductDescMiddle>
+                {/* {Array.isArray(product)
+                  ? product.products.map((desc) => {
+                      return <li>{desc.tag}</li>;
+                    })
+                  : null} */}
+                {/* {product &&
+                  product.products.map((product) => {
+                    return <li>{product.tag}</li>;
+                  })} */}
+                {/* {product.map(() => {
+                  return <li>sdsdsd</li>;
+                })} */}
+              </ProductDescMiddle>
+              <ProductDescBottom>
+                <CartAmountCounter>
+                  <span className="amount">구매수량</span>
+                  <CountOuter>
+                    <AmountCountPlusButton>
+                      <BiPlus />
+                    </AmountCountPlusButton>
+                    <span>1</span>
+                    <AmountCountMinusButton>
+                      <BiMinus />
+                    </AmountCountMinusButton>
+                  </CountOuter>
+                </CartAmountCounter>
+
+                <TotalMoney>
+                  {t("product.IProductTotalMoney")} :
+                  <strong>{product.price}</strong>
+                </TotalMoney>
+                <LoginAfterBenefits>
+                  <span>{t("product.IPointCccumulate")}</span>
+                  {t("common.InitLoginAfterBenefits")}
+                </LoginAfterBenefits>
+                <TechnicalCheckIcons>
+                  <i className="ico heart">
+                    <FiHeart />
+                  </i>
+                  <i className="ico bell">
+                    <BiBell />
+                  </i>
+                  <InStorageCartButton onClick={storageCartHandler}>
+                    {t("product.IButtonAddToCart")}
+                  </InStorageCartButton>
+                </TechnicalCheckIcons>
+              </ProductDescBottom>
+            </DescInner>
+          </DescContent>
         </ProductContainer>
       </ProductWrapper>
     </Main>

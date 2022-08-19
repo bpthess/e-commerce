@@ -1,79 +1,93 @@
 import styled from "styled-components";
+import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
-  width: 100%;
+  width: ${Spacing.select.selectNumber100}%;
 `;
 
 export const SectionTitle = styled.h1`
-  text-align: center;
-  font-size: 28px;
-  font-weight: 500;
+  text-align: ${Spacing.select.mark.selectCenter};
+  font-size: ${Spacing.select.selectFontSize28}px;
+  font-weight: ${Spacing.select.selectFontWeight500};
 `;
 
 export const ProductsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: ${Spacing.select.mark.selectFlex};
+  flex-wrap: ${Spacing.select.mark.selectFlexWrap};
+  justify-content: ${Spacing.select.mark.selectCenter};
 `;
 
 export const ProductsContainer = styled.div`
-  margin: 25px 8px;
-  overflow: hidden;
+  margin: ${Spacing.home.mark.homeContainerMargin};
+  overflow: ${Spacing.select.mark.selectHidden};
 `;
 
 export const ImgContents = styled.div`
-  max-width: 250px;
-  height: 320px;
-  overflow: hidden;
+  max-width: ${Spacing.home.homeWidth}px;
+  height: ${Spacing.home.homeHeight}px;
+  overflow: ${Spacing.select.mark.selectHidden};
 `;
 
 export const ImgItem = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.3s ease 0s;
-  overflow: hidden;
+  width: ${Spacing.select.selectNumber100}%;
+  height: ${Spacing.select.selectNumber100}%;
+  object-fit: ${Spacing.select.mark.selectCover};
+  overflow: ${Spacing.select.mark.selectHidden};
+  transition: ${Spacing.home.mark.homeTransition};
+
   :hover {
-    transform: scale(1.1);
-    object-fit: cover;
+    object-fit: ${Spacing.select.mark.selectCover};
+    transform: ${Spacing.home.mark.homeHoverScale};
   }
 `;
 
 export const ProductsDesc = styled.div`
-  padding: 1rem 0;
-  position: relative;
-  & span {
+  padding: ${Spacing.home.mark.homeDescPadding};
+  position: ${Spacing.select.mark.selectRelative};
+
+  & strong {
+    display: ${Spacing.select.mark.selectBlock};
+    font-size: ${Spacing.select.selectFontSize11}px;
+    font-weight: ${Spacing.select.mark.selectBold};
+    color: ${Color.home.homeColor};
+    margin-bottom: ${Spacing.home.homeMarinBottom}px;
   }
+
   & p.price {
-    padding: 5px 0 15px;
-    font-weight: bold;
+    padding: ${Spacing.home.mark.homePricePadding};
+    font-weight: ${Spacing.select.mark.selectBold};
   }
+
   & p.desc {
-    font-size: 12px;
-    color: #999;
+    font-size: ${Spacing.select.selectFontSize14}px;
+    color: ${Color.home.homeColor};
   }
+
   & button {
   }
 `;
 
 export const OnStorageCartButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: -60px;
-  background-color: #f0004c;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  position: ${Spacing.select.mark.selectAbsolute};
+  right: ${Spacing.home.homeCartButtonRight}px;
+  top: ${Spacing.home.homeCartButtonTop}px;
+  background-color: ${Color.select.selectDarkCyanColor};
+  border-radius: ${Spacing.select.selectNumber100}%;
+  width: ${Spacing.home.homeCartButtonWidth}px;
+  height: ${Spacing.home.homeCartButtonWidth}px;
+
   & svg {
-    margin-top: 2px;
-    font-size: 24px;
-    color: #fff;
+    margin-top: ${Spacing.home.homeCartButtonMarginTop}px;
+    font-size: ${Spacing.select.selectFontSize24}px;
+    color: ${Color.select.selectWhiteColor};
   }
+
   :hover {
-    background-color: #fff;
-    transition: all 0.1s ease 0s;
+    background-color: ${Color.select.selectWhiteColor};
+    transition: ${Spacing.home.mark.homeHoverTranstion};
+
     & svg {
-      color: #f0004c;
+      color: ${Color.select.selectDarkCyanColor};
     }
   }
 `;

@@ -25,11 +25,15 @@ const data = {
       imageHover: "/images/item02.jpg",
       price: "4,980원",
       desc: "두루 활용하기 좋은 올리브오일",
+      seller: "컬리",
+      package: "냉장(종이포장)",
+      unit: "1개/1박스",
+      Volume: "45g/450g",
+      allergy: "-대두, 우유, 호두 함유",
       countInStock: 10,
       brand: "Nike",
       rating: 4.5,
       numReviews: 10,
-      description: "high quality shirt",
     },
     {
       _id: "2",
@@ -44,7 +48,6 @@ const data = {
       brand: "Adidas",
       rating: 4.0,
       numReviews: 10,
-      description: "high quality product",
     },
     {
       _id: "3",
@@ -58,7 +61,6 @@ const data = {
       brand: "Nike",
       rating: 4.5,
       numReviews: 14,
-      description: "high quality product",
     },
     {
       _id: "4",
@@ -72,7 +74,6 @@ const data = {
       brand: "Puma",
       rating: 4.5,
       numReviews: 10,
-      description: "high quality product",
     },
   ],
 };
