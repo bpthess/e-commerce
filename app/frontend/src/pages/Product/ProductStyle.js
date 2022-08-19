@@ -1,148 +1,169 @@
 import styled from "styled-components";
+import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
-  width: 100%;
+  width: ${Spacing.select.selectNumber100}%;
 `;
 
 export const ProductWrapper = styled.div`
-  width: 1050px;
-  min-width: 1050px;
-  margin: 0px auto;
+  width: ${Spacing.product.productWidth}px;
+  min-width: ${Spacing.product.productWidth}px;
+  margin: ${Spacing.select.mark.selectMarginAuto};
 `;
 
 export const ProductContainer = styled.div`
-  display: flex;
+  display: ${Spacing.select.mark.selectFlex};
 `;
+
 export const ImgContent = styled.div`
-  flex: 0.6;
+  flex: ${Spacing.product.productFlex06};
 `;
+
 export const DescContent = styled.div`
-  flex: 0.8;
-  margin-left: 5vw;
+  flex: ${Spacing.product.productFlex08};
+  margin-left: ${Spacing.product.productDescMarginLeft}vw;
 `;
+
 export const DescInner = styled.div`
-  overflow: hidden;
+  overflow: ${Spacing.select.mark.selectHidden};
 `;
+
 export const ProductDescHeader = styled.div`
   & .tag {
-    font-size: 14px;
-    color: #999;
-    font-weight: bold;
+    font-size: ${Spacing.select.selectFontSize14}px;
+    color: ${Color.product.productColor};
+    font-weight: ${Spacing.select.mark.selectBold};
   }
+
   & .title {
-    font-size: 24px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 5px 0 15px;
+    font-size: ${Spacing.select.selectFontSize24}px;
+    font-weight: ${Spacing.select.selectFontWeight500};
+    white-space: ${Spacing.select.mark.selectNowrap};
+    padding: ${Spacing.product.mark.productDescPadding};
   }
+
   & .desc {
-    font-size: 14px;
-    color: #ababab;
+    font-size: ${Spacing.select.selectFontSize14}px;
+    color: ${Color.product.productColor2};
   }
+
   & .price {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 15px 0 10px;
+    font-size: ${Spacing.select.selectFontSize24}px;
+    font-weight: ${Spacing.select.mark.selectBold};
+    margin: ${Spacing.product.mark.productPriceMargin};
   }
+
   & .benefit {
-    font-size: 14px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ececec;
+    font-size: ${Spacing.select.selectFontSize14}px;
+    padding-bottom: ${Spacing.product.productBenefitPaddingBottom}px;
+    border-bottom: ${Color.product.productBorder2};
   }
 `;
+
 export const ProductDescMiddle = styled.div``;
 export const ProductDescBottom = styled.div``;
 export const CartAmountCounter = styled.div`
-  width: 85px;
-  text-align: center;
-  display: inline-block;
-  margin-top: 20px;
+  width: ${Spacing.product.productCartWidth}px;
+  text-align: ${Spacing.select.mark.selectCenter};
+  display: ${Spacing.select.mark.selectInlineBlock};
+  margin-top: ${Spacing.product.productCartMarginTop}px;
+
   & .amount {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+    display: ${Spacing.select.mark.selectBlock};
+    font-size: ${Spacing.select.selectFontSize14}px;
+    margin-bottom: ${Spacing.product.productCartAmountMarginBottom}px;
   }
 `;
 export const CountOuter = styled.div`
-  width: 85px;
-  height: 30px;
-  line-height: 30px;
-  display: inline-block;
-  overflow: hidden;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-around;
+  width: ${Spacing.product.productCountOuterWidth}px;
+  height: ${Spacing.product.productCountOuterHeight}px;
+  line-height: ${Spacing.product.productCountOuterLineHeight}px;
+  overflow: ${Spacing.select.mark.selectHidden};
+  text-align: ${Spacing.select.mark.selectCenter};
+  border: ${Color.product.productBorder1};
+  border-radius: ${Spacing.select.selectRadius3}px;
+  display: ${Spacing.select.mark.selectFlex};
+  justify-content: ${Spacing.select.mark.selectSpaceAround};
+
   & span {
-    font-size: 14px;
+    font-size: ${Spacing.select.selectFontSize14}px;
   }
 `;
+
 export const AmountCountPlusButton = styled.button`
   & svg {
-    margin-top: 5px;
-    font-size: 14px;
+    margin-top: ${Spacing.product.productSvgMarginTop}px;
+    font-size: ${Spacing.select.selectFontSize14}px;
   }
 `;
+
 export const AmountCountMinusButton = styled.button`
   & svg {
-    margin-top: 5px;
-    font-size: 14px;
+    margin-top: ${Spacing.product.productSvgMarginTop}px;
+    font-size: ${Spacing.select.selectFontSize14}px;
   }
 `;
+
 export const TotalMoney = styled.p`
-  padding-right: 12px;
-  padding-top: 10px;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: right;
+  padding-right: ${Spacing.product.productTotalPaddingRight}px;
+  padding-top: ${Spacing.product.productTotalPaddingTop}px;
+  font-size: ${Spacing.select.selectFontSize13}px;
+  font-weight: ${Spacing.select.selectFontWeight500};
+  text-align: ${Spacing.select.mark.selectRight};
+
   & strong {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: ${Spacing.select.selectFontSize28}px;
+    font-weight: ${Spacing.select.mark.selectBold};
   }
 `;
+
 export const LoginAfterBenefits = styled.p`
-  padding: 20px 0;
-  font-size: 14px;
-  text-align: right;
+  padding: ${Spacing.product.productLoginBenefitsPadding}px;
+  font-size: ${Spacing.select.selectFontSize14}px;
+  text-align: ${Spacing.select.mark.selectRight};
+
   & span {
-    padding: 2px 7px;
-    margin-right: 5px;
-    background-color: darkcyan;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #fff;
+    padding: ${Spacing.product.mark.productLoginBenefitsSpanPadding};
+    margin-right: ${Spacing.product.productLoginBenefitsMarginRight}px;
+    background-color: ${Color.select.selectDarkCyanColor};
+    border-radius: ${Spacing.product.productLoginBenefitsRadius}px;
+    font-size: ${Spacing.select.selectFontSize11}px;
+    font-weight: ${Spacing.select.selectFontWeight600};
+    color: ${Color.select.selectWhiteColor};
   }
 `;
+
 export const TechnicalCheckIcons = styled.div`
-  height: 55px;
-  line-height: 55px;
-  display: flex;
+  height: ${Spacing.product.productIconHeight}px;
+  line-height: ${Spacing.product.productIconLineHeight}px;
+  display: ${Spacing.select.mark.selectFlex};
+
   & .ico {
-    padding: 0 7px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 24px;
+    padding: ${Spacing.product.mark.productIconPadding};
+    margin: ${Spacing.product.mark.productIconMargin};
+    border: ${Color.product.productBorder1};
+    border-radius: ${Spacing.select.selectRadius3}px;
+    font-size: ${Spacing.select.selectFontSize24}px;
     cursor: pointer;
 
     & svg {
-      margin: 0 7px;
-      font-size: 24px;
+      margin: ${Spacing.product.mark.productIconSvgMargin};
+      font-size: ${Spacing.select.selectFontSize24}px;
     }
   }
+
   & button {
-    background-color: #fff;
-    border: 1px solid darkcyan;
-    border-radius: 3px;
-    color: darkcyan;
-    flex-grow: 1;
-    margin-left: 5px;
-    transition: all 0.15s linear;
+    background-color: ${Color.select.selectWhiteColor};
+    border: ${Color.product.productBorder3};
+    border-radius: ${Spacing.select.selectRadius3}px;
+    color: ${Color.select.selectDarkCyanColor};
+    flex-grow: ${Spacing.select.selectNumber1};
+    margin-left: ${Spacing.product.productIconButtonMarginLeft}px;
+    transition: ${Spacing.product.mark.productIconButtonTransition};
+
     :hover {
-      color: #fff;
-      background-color: darkcyan;
+      color: ${Color.select.selectWhiteColor};
+      background-color: ${Color.select.selectDarkCyanColor};
     }
   }
 `;

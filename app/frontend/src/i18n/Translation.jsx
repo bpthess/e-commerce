@@ -19,7 +19,7 @@ const LanguageButtonWrapper = styled.div`
     transform: translate(-50%, -50%);
   }
   & button {
-    margin: 15px 10px;
+    padding: 15px;
   }
 `;
 const KoLanguageButton = styled.button``;

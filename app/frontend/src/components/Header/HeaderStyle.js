@@ -1,46 +1,47 @@
 import styled from "styled-components";
+import { Color, Spacing } from "../../variable/Spacing";
 
 export const Wrap = styled.div`
-  width: 100%;
-  height: 7vh;
-  line-height: 7vh;
-  position: fixed;
-  top: 0;
-  background-color: #fff;
-  box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px;
-  padding: 0 15vw;
-  z-index: 3000;
-  overflow: hidden;
+  width: ${Spacing.select.selectNumber100}%;
+  height: ${Spacing.header.headerWrapHeight}vh;
+  line-height: ${Spacing.header.headerWrapLineHeight}vh;
+  position: ${Spacing.select.mark.selectFixed};
+  top: ${Spacing.select.selectNumber0};
+  background-color: ${Color.header.headerWrapBgColor};
+  box-shadow: ${Color.header.headerWrapBoxShaow};
+  padding: ${Spacing.header.mark.headerWrapPadding}vw;
+  z-index: ${Spacing.header.headerWrapZIndex};
+  overflow: ${Spacing.select.mark.selectHidden};
 `;
 
 export const Container = styled.div`
-  min-width: 1050px;
-  height: inherit;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-width: ${Spacing.header.headerContainerMinWidth}px;
+  height: ${Spacing.select.mark.selectInhert};
+  margin: ${Spacing.select.mark.selectMarginAuto};
+  display: ${Spacing.select.mark.selectFlex};
+  justify-content: ${Spacing.select.mark.selectCenter};
+  align-items: ${Spacing.select.mark.selectCenter};
 
   & > ul,
   > form {
-    padding: 0 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
+    padding: ${Spacing.header.mark.headerContainerPadding}px;
+    display: ${Spacing.select.mark.selectFlex};
+    justify-content: ${Spacing.select.mark.selectCenter};
+    align-items: ${Spacing.select.mark.selectCenter};
+    font-weight: ${Spacing.select.selectFontWeight500};
   }
 `;
 
 export const ItemsMenu = styled.ul`
   & li {
-    display: flex;
+    display: ${Spacing.select.mark.selectFlex};
     & a {
-      font-size: 16px;
+      font-size: ${Spacing.select.selectFontSize16}px;
       & svg {
-        margin-right: 20px;
-        font-size: 20px;
-        vertical-align: text-top;
-        margin-top: 1px;
+        margin-right: ${Spacing.header.headerItemsMenuMarginRight}px;
+        font-size: ${Spacing.select.selectFontSize20}px;
+        vertical-align: ${Spacing.select.mark.selectTextTop};
+        margin-top: ${Spacing.header.headerItemsMenuMarginTop}px;
       }
     }
   }
@@ -48,68 +49,68 @@ export const ItemsMenu = styled.ul`
 
 export const ItemsNavi = styled.ul`
   & li {
-    padding: 0 30px;
+    padding: ${Spacing.header.mark.headerItemsNavi}px;
   }
 `;
 
 export const ItemsSearchForm = styled.form`
-  position: relative;
+  position: ${Spacing.select.mark.selectRelative};
 `;
 
 export const FormContainer = styled.div`
   & svg {
-    font-size: 20px;
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-top: 1px;
+    font-size: ${Spacing.select.selectFontSize20}px;
+    position: ${Spacing.select.mark.selectAbsolute};
+    right: ${Spacing.header.headerFormContainerRight}px;
+    top: ${Spacing.header.headerFormContainerTop}%;
+    transform: ${Spacing.header.mark.headerFormContainerTransform};
+    margin-top: ${Spacing.header.headerFormContainerMarinTop}px;
     cursor: pointer;
   }
 `;
 
 export const Controller = styled.input`
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 10px 25px 10px 15px;
-  font-size: 12px;
+  background-color: ${Color.header.headerControllerBgColor};
+  border-radius: ${Spacing.header.headerFormControllerRadius}px;
+  padding: ${Spacing.header.mark.headerFormControllerPadding};
+  font-size: ${Spacing.select.selectFontSize12}px;
 
   ::placeholder {
-    font-weight: 400;
-    font-size: 12px;
-    color: #999;
+    font-weight: ${Spacing.select.selectFontWeight400};
+    font-size: ${Spacing.header.headerFormControllerFontSize}px;
+    color: ${Color.header.headerPlaceholderFontColor};
   }
 `;
 
 export const ItemsIcon = styled.ul`
   & li {
-    margin-right: 30px;
-    font-size: 24px;
+    padding: ${Spacing.header.mark.headerItemsIconsPadding}px;
+    font-size: ${Spacing.select.selectFontSize24}px;
     cursor: pointer;
   }
   & li:last-child {
-    position: relative;
+    position: ${Spacing.select.mark.selectRelative};
   }
 `;
 
 export const Badge = styled.span`
-  height: 18px;
-  line-height: 18px;
-  position: absolute;
-  right: -2px;
-  bottom: 15px;
-  font-size: 12px;
-  color: #fff;
-  z-index: 100;
+  height: ${Spacing.header.headerBadgeHeigth}px;
+  line-height: ${Spacing.header.headerBadgeLineHeigth}px;
+  position: ${Spacing.select.mark.selectAbsolute};
+  right: ${Spacing.header.headerBadgeRight}px;
+  bottom: ${Spacing.header.headerBadgeBottom}px;
+  font-size: ${Spacing.select.selectFontSize12}px;
+  color: ${Color.select.selectWhiteColor};
+  z-index: ${Spacing.header.headerBadgeZIndex};
 
   :before {
     content: "";
-    background-color: darkcyan;
-    border-radius: 100%;
-    position: absolute;
-    left: -6px;
-    width: 18px;
-    height: 18px;
-    z-index: -1;
+    background-color: ${Color.select.selectDarkCyanColor};
+    border-radius: ${Spacing.select.selectNumber100}%;
+    position: ${Spacing.select.mark.selectAbsolute};
+    left: ${Spacing.header.headerBadgeBeforeLeft}px;
+    width: ${Spacing.header.headerBadgeBeforeWidth}px;
+    height: ${Spacing.header.headerBadgeBeforeHeight}px;
+    z-index: ${Spacing.select.selectMinusZindex};
   }
 `;
