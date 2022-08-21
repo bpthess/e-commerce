@@ -74,6 +74,11 @@ export const CartAmountCounter = styled.div`
     margin-bottom: ${Spacing.product.productCartAmountMarginBottom}px;
   }
 `;
+
+/**
+ * TODO: 수량 추가& 제거 스타일드 컴포넌트,
+ * 추후 컴포넌트로 빼내어 여러 곳에 할당 예정
+ * */
 export const CountOuter = styled.div`
   width: ${Spacing.product.productCountOuterWidth}px;
   height: ${Spacing.product.productCountOuterHeight}px;
