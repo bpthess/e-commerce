@@ -3,6 +3,8 @@ import { initReactI18next } from "react-i18next";
 
 import resources from "./locales";
 
+type LanguageCode = "ko" | "en";
+
 i18n
   .use(initReactI18next)
   .init({
@@ -19,7 +21,7 @@ i18n
   })
   .then(() =>
     i18n.on("languageChanged", (lng) => {
-      lng();
+      lng as LanguageCode;
     })
   );
 

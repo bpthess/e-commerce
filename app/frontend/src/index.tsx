@@ -5,7 +5,9 @@ import App from "./App";
 import { HelmetProvider } from "react-helmet-async";
 import { StoreProvider } from "./Store";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
   <React.StrictMode>
     <StoreProvider>

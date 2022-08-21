@@ -49,9 +49,9 @@ function CartScreen() {
           ) : (
             <>
               <CartContent>
-                {cartItems.map((item) => {
+                {cartItems.map((item, index) => {
                   return (
-                    <CartInner key={item.id}>
+                    <CartInner key={index}>
                       <ListGroup>
                         <img src={item.image} alt={item.name} />
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
