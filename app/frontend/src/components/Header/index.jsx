@@ -4,7 +4,8 @@ import {
   ItemsMenu,
   ItemsNavi,
   ItemsSearchForm,
-  ItemsIcon,
+  ItemsIconUlTree,
+  ItemsIconLiTree,
   FormContainer,
   Controller,
   Badge,
@@ -21,6 +22,7 @@ const Header = () => {
   const { state } = useContext(Store);
   const { cart } = state;
 
+  // 내비게이션 캡슐화, 은닉화
   class Route {
     constructor(id, name, href) {
       this._id = id;
@@ -37,10 +39,10 @@ const Header = () => {
       return this._href;
     }
   }
-  const Navi1 = new Route(1, "상품", "");
-  const Navi2 = new Route(2, "베스트", "");
-  const Navi3 = new Route(3, "알뜰쇼핑", "");
-  const Navi4 = new Route(4, "특가/혜택", "");
+  const Navi1 = new Route(1, "header.IHeaderNaviProduct", "/");
+  const Navi2 = new Route(2, "header.IHeaderNaviBestProduct", "developing");
+  const Navi3 = new Route(3, "header.IHeaderNaviThrifty", "developing");
+  const Navi4 = new Route(4, "header.IHeaderNaviBenefit", "developing");
 
   const NaviData = [Navi1, Navi2, Navi3, Navi4];
 
@@ -51,7 +53,7 @@ const Header = () => {
           <li>
             <Link to="/">
               <FiMenu />
-              {t("common.Category")}
+              {t("select.Category")}
             </Link>
           </li>
         </ItemsMenu>
@@ -59,25 +61,25 @@ const Header = () => {
           {NaviData.map((title) => {
             return (
               <Link to={title.href} key={title.id}>
-                <li>{title.name}</li>
+                <li>{t(title.name)}</li>
               </Link>
             );
           })}
         </ItemsNavi>
         <ItemsSearchForm>
           <FormContainer>
-            <Controller placeholder="검색어를 입력해주세요" />
+            <Controller placeholder={t("header.IFormPlaceholder")} />
             <BiSearch />
           </FormContainer>
         </ItemsSearchForm>
-        <ItemsIcon>
-          <li>
+        <ItemsIconUlTree>
+          <ItemsIconLiTree>
             <FiMapPin />
-          </li>
-          <li>
+          </ItemsIconLiTree>
+          <ItemsIconLiTree>
             <FiHeart />
-          </li>
-          <li>
+          </ItemsIconLiTree>
+          <ItemsIconLiTree>
             <Link to="/cart">
               <BiShoppingBag />
               {cart.cartItems.length > 0 && (
@@ -86,8 +88,8 @@ const Header = () => {
                 </Badge>
               )}
             </Link>
-          </li>
-        </ItemsIcon>
+          </ItemsIconLiTree>
+        </ItemsIconUlTree>
       </Container>
     </Wrap>
   );

@@ -132,7 +132,7 @@ function ProductScreen() {
                 <h2 className="title">{product.name}</h2>
                 <p className="desc">{product.desc}</p>
                 <p className="price">{product.price}</p>
-                <p className="benefit">{t("common.InitLoginAfterBenefits")}</p>
+                <p className="benefit">{t("select.InitLoginAfterBenefits")}</p>
               </ProductDescHeader>
               <ProductDescMiddle>
                 {/* {Array.isArray(product)
@@ -152,23 +152,23 @@ function ProductScreen() {
                 <CartAmountCounter>
                   <span className="amount">구매수량</span>
                   <CountOuter>
-                    <AmountCountPlusButton>
-                      <BiPlus />
-                    </AmountCountPlusButton>
-                    <span>1</span>
                     <AmountCountMinusButton>
                       <BiMinus />
                     </AmountCountMinusButton>
+                    <span className="quantity">1</span>
+                    <AmountCountPlusButton>
+                      <BiPlus />
+                    </AmountCountPlusButton>
                   </CountOuter>
                 </CartAmountCounter>
 
                 <TotalMoney>
-                  {t("product.IProductTotalMoney")} :
+                  {t("product.IProductTotalMoney")} :{" "}
                   <strong>{product.price}</strong>
                 </TotalMoney>
                 <LoginAfterBenefits>
                   <span>{t("product.IPointCccumulate")}</span>
-                  {t("common.InitLoginAfterBenefits")}
+                  {t("select.InitLoginAfterBenefits")}
                 </LoginAfterBenefits>
                 <TechnicalCheckIcons>
                   <i className="ico heart">

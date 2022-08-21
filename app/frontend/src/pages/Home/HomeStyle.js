@@ -62,9 +62,6 @@ export const ProductsDesc = styled.div`
     font-size: ${Spacing.select.selectFontSize14}px;
     color: ${Color.home.homeColor};
   }
-
-  & button {
-  }
 `;
 
 export const OnStorageCartButton = styled.button`

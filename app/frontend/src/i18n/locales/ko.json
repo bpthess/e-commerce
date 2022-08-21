@@ -1,9 +1,16 @@
 {
-  "common": {
+  "select": {
     "Ko": "KO",
     "En": "EN",
     "Category": "카테고리",
     "InitLoginAfterBenefits": "로그인 후, 적립 혜택이 제공됩니다."
+  },
+  "header": {
+    "IFormPlaceholder": "검색어를 입력해주세요",
+    "IHeaderNaviProduct": "상품",
+    "IHeaderNaviBestProduct": "베스트",
+    "IHeaderNaviThrifty": "알뜰쇼핑",
+    "IHeaderNaviBenefit": "특가/혜택"
   },
   "helmet": {
     "Home": "E-Commerce",
@@ -18,6 +25,12 @@
     "IPointCccumulate": "적립"
   },
   "cart": {
-    "": ""
+    "IShoppingBasket": "장바구니",
+    "IDoneBasketMessage": "장바구니가 비어있습니다.",
+    "IProductAmount": "상품금액",
+    "IDeliveryAmount": "배송금액",
+    "IDeliveryCost": "3,000원",
+    "ITotalAmount": "합계금액",
+    "ICartCheckout": "Checkout"
   }
 }

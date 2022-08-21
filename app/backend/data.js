@@ -3,13 +3,13 @@ import bcrypt from "bcryptjs";
 const data = {
   users: [
     {
-      name: "Basir",
+      name: "test01",
       email: "admin@example.com",
       password: bcrypt.hashSync("123456"),
       isAdmin: true,
     },
     {
-      name: "John",
+      name: "test02",
       email: "user@example.com",
       password: bcrypt.hashSync("123456"),
       isAdmin: false,
@@ -31,9 +31,6 @@ const data = {
       Volume: "45g/450g",
       allergy: "-대두, 우유, 호두 함유",
       countInStock: 10,
-      brand: "Nike",
-      rating: 4.5,
-      numReviews: 10,
     },
     {
       _id: "2",
@@ -45,9 +42,6 @@ const data = {
       price: "11,500원",
       desc: "안심하고 더하는 칠기",
       countInStock: 0,
-      brand: "Adidas",
-      rating: 4.0,
-      numReviews: 10,
     },
     {
       _id: "3",
@@ -55,12 +49,9 @@ const data = {
       slug: "휴대용 칫솔 세트 2종",
       tag: "당일배송",
       image: "/images/item03.jpg",
-      price: "8,900원",
+      price: `8,900원`,
       desc: "안쪽으로 기울어진 미세모 칫솔 세트",
       countInStock: 15,
-      brand: "Nike",
-      rating: 4.5,
-      numReviews: 14,
     },
     {
       _id: "4",
@@ -71,9 +62,6 @@ const data = {
       price: "16,000원",
       desc: "아낌없이 올린 오동통한 알꼬막",
       countInStock: 5,
-      brand: "Puma",
-      rating: 4.5,
-      numReviews: 10,
     },
   ],
 };

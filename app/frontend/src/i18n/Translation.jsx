@@ -3,41 +3,46 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const LanguageButtonWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 0;
   display: flex;
-  z-index: 5000;
+  z-index: 3000;
+
   :before {
     content: "";
-    width: 0.5px;
-    height: 12px;
-    background-color: #ccc;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: 0.5px;
+    height: 12px;
+    background-color: #ccc;
   }
+
   & button {
     padding: 15px;
   }
 `;
+
 const KoLanguageButton = styled.button``;
 const EnLanguageButton = styled.button``;
 
 const Translation = () => {
   const { t } = useTranslation();
 
+  // 다국어 핸들러
   const clickHandler = (lang) => {
     i18next.changeLanguage(lang);
   };
+
   return (
     <LanguageButtonWrapper>
       <KoLanguageButton onClick={() => clickHandler("ko")}>
-        {t("common.Ko")}
+        {t("select.Ko")}
       </KoLanguageButton>
       <EnLanguageButton onClick={() => clickHandler("en")}>
-        {t("common.En")}
+        {t("select.En")}
       </EnLanguageButton>
     </LanguageButtonWrapper>
   );
