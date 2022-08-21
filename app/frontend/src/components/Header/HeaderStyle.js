@@ -82,13 +82,12 @@ export const Controller = styled.input`
   }
 `;
 
-export const ItemsIcon = styled.ul`
-  & li {
-    padding: ${Spacing.header.mark.headerItemsIconsPadding}px;
-    font-size: ${Spacing.select.selectFontSize24}px;
-    cursor: pointer;
-  }
-  & li:last-child {
+export const ItemsIconUlTree = styled.ul``;
+export const ItemsIconLiTree = styled.li`
+  padding: ${Spacing.header.mark.headerItemsIconsPadding}px;
+  font-size: ${Spacing.select.selectFontSize24}px;
+  cursor: pointer;
+  :last-child {
     position: ${Spacing.select.mark.selectRelative};
   }
 `;
