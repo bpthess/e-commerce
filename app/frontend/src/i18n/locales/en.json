@@ -9,8 +9,8 @@
     "IFormPlaceholder": "검색어를 입력해주세요",
     "IHeaderNaviProduct": "Product",
     "IHeaderNaviBestProduct": "Best",
-    "IHeaderNaviThrifty": "Thrifty Shopping",
-    "IHeaderNaviBenefit": "Specials/Benefit"
+    "IHeaderNaviThrifty": "Thrifty",
+    "IHeaderNaviBenefit": "Benefit"
   },
   "helmet": {
     "Home": "E-Commerce",

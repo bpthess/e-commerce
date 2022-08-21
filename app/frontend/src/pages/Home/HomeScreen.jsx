@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useReducer } from "react";
+import React, { useState, useEffect, useContext, useReducer } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {
@@ -36,6 +36,7 @@ const reducer = (state, action) => {
 
 function HomeScreen() {
   const { t } = useTranslation();
+
   // 대체 이미지 state
   // const [isItemHover, setIsItemHover] = useState(false);
 
@@ -43,6 +44,7 @@ function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
+
     error: "",
   });
 

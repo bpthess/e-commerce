@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-
 export const Store = createContext();
 
 const dataInitState = {
@@ -10,11 +9,12 @@ const dataInitState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "CART_ADD_ITEM":
+    case "CART_ADD_ITEM": {
       const newItem = action.payload;
       const storageItem = state.cart.cartItems.find(
         (item) => item._id === newItem._id
       );
+
       const cartItems = storageItem
         ? state.cart.cartItems.map((item) =>
             item._id === storageItem._id ? newItem : item
@@ -22,7 +22,7 @@ function reducer(state, action) {
         : [...state.cart.cartItems, newItem];
 
       return { ...state, cart: { ...state.cart, cartItems } };
-
+    }
     default:
       return state;
   }
