@@ -1,8 +1,16 @@
 {
-  "common": {
+  "select": {
     "Ko": "KO",
     "En": "EN",
-    "Category": "Category"
+    "Category": "Category",
+    "InitLoginAfterBenefits": "After logging in, you will receive the earning benefits."
+  },
+  "header": {
+    "IFormPlaceholder": "검색어를 입력해주세요",
+    "IHeaderNaviProduct": "Product",
+    "IHeaderNaviBestProduct": "Best",
+    "IHeaderNaviThrifty": "Thrifty Shopping",
+    "IHeaderNaviBenefit": "Specials/Benefit"
   },
   "helmet": {
     "Home": "E-Commerce",
@@ -12,9 +20,17 @@
     "IHomeSectionMent": "This Product?"
   },
   "product": {
-    "IButtonAddToCart": "Add to Cart"
+    "IProductTotalMoney": "Product Total Money",
+    "IButtonAddToCart": "Add to Cart",
+    "IPointCccumulate": "Accumulate"
   },
   "cart": {
-    "": ""
+    "IShoppingBasket": "Shopping Basket",
+    "IDoneBasketMessage": "Your shopping cart is empty.",
+    "IProductAmount": "Product Amount",
+    "IDeliveryAmount": "Delivery Amount",
+    "IDeliveryCost": "3,000won",
+    "ITotalAmount": "Total Amount",
+    "ICartCheckout": "Checkout"
   }
 }

@@ -23,6 +23,10 @@ export const Color = {
     productBorder2: "1px solid #ececec",
     productBorder3: "1px solid darkcyan",
   },
+
+  cart: {
+    cartBorder: "1px solid #ccc",
+  },
 };
 
 export const Spacing = {
@@ -47,8 +51,10 @@ export const Spacing = {
     mark: {
       selectFlex: "flex",
       selectFlexWrap: "wrap",
+      selectStart: "flex-start",
       selectCenter: "center",
       selectSpaceAround: "space-around",
+      selectSpaceBetween: "space-between",
       selectMarginAuto: "0 auto",
       selectFixed: "fixed",
       selectAbsolute: "absolute",
@@ -62,6 +68,7 @@ export const Spacing = {
       selectBold: "bold",
       selectNowrap: "nowrap",
       selectRight: "right",
+      selectContentBox: "content-box",
     },
   },
   header: {
@@ -142,6 +149,23 @@ export const Spacing = {
       productIconMargin: "0 5px",
       productIconSvgMargin: "0 7px",
       productIconButtonTransition: "all 0.15s linear",
+    },
+  },
+  cart: {
+    cartLabelMessageMarginTop: 10,
+    cartLabelMessageSvgPadding: 10,
+    cartContentWidth: 1050,
+    cartTotalGroup: 50,
+    cartTotalGroupCostMarginLeft: 20,
+    cartListGroupWidth: 80,
+    cartListGroupWidthImg: 80,
+
+    mark: {
+      cartWrapPadding: "0 100px",
+      cartLabelTitlePadding: "110px 0 28px",
+      cartLabelMessagePadding: "20px 0",
+      cartTotalPadding: "20px 40px",
+      cartListGroupPadding: "10px 0",
     },
   },
 };
