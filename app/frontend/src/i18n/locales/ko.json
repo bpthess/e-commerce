@@ -22,7 +22,8 @@
   "product": {
     "IProductTotalMoney": "총 상품 금액",
     "IButtonAddToCart": "장바구니 담기",
-    "IPointCccumulate": "적립"
+    "IPointCccumulate": "적립",
+    "IPurchaseQuantity": "구매수량"
   },
   "cart": {
     "IShoppingBasket": "장바구니",

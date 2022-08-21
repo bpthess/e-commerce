@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useReducer } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   Main,
@@ -17,6 +18,7 @@ import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
 import { Store } from "../../Store";
 import { BiShoppingBag } from "react-icons/bi";
+import getError from "../../utils/Utils";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -33,6 +35,7 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
+  const { t } = useTranslation();
   // 대체 이미지 state
   // const [isItemHover, setIsItemHover] = useState(false);
 
@@ -46,7 +49,7 @@ function HomeScreen() {
   useEffect(() => {
     /**
      * TODO:
-     * API 요청하는 과정 중 에러 반환 코드가 중복되어 있음. 리팩토링 필요.
+     * 통신 요청 과정 중 에러 반환 코드가 중복되어 있음. 리팩토링 필요.
      */
 
     // 패치 요청
@@ -64,7 +67,7 @@ function HomeScreen() {
       })
       // 패치 실패
       .catch((error) => {
-        dispatch({ type: "FETCH_FAIL", payload: error.message });
+        dispatch({ type: "FETCH_FAIL", payload: getError(error) });
       });
   }, []);
 
@@ -72,20 +75,15 @@ function HomeScreen() {
   const { state, dispatch: contextDispatch } = useContext(Store);
   const { cart } = state;
 
-  const storageCartHandler = () => {
+  const storageCartHandler = async () => {
     const storageItem = cart.cartItems.find((x) => x._id === products._id);
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
+
     contextDispatch({
       type: "CART_ADD_ITEM",
       payload: { ...products, quantity },
     });
   };
-
-  // 다국어 적용
-  /**
-   * TODO: 다국어 적용하기
-   */
-  const { t } = useTranslation();
 
   return (
     <Main>

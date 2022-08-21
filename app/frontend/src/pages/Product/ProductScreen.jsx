@@ -150,7 +150,9 @@ function ProductScreen() {
               </ProductDescMiddle>
               <ProductDescBottom>
                 <CartAmountCounter>
-                  <span className="amount">구매수량</span>
+                  <span className="amount">
+                    {t("product.IPurchaseQuantity")}
+                  </span>
                   <CountOuter>
                     <AmountCountMinusButton>
                       <BiMinus />

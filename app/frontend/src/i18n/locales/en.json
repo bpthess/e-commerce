@@ -22,7 +22,8 @@
   "product": {
     "IProductTotalMoney": "Product Total Money",
     "IButtonAddToCart": "Add to Cart",
-    "IPointCccumulate": "Accumulate"
+    "IPointCccumulate": "Accumulate",
+    "IPurchaseQuantity": "Quantity"
   },
   "cart": {
     "IShoppingBasket": "Shopping Basket",
