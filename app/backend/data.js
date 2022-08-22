@@ -21,7 +21,7 @@ const data = {
       name: "퓨어 올리브",
       slug: "퓨어 올리브",
       tag: "당일배송",
-      image: "https://img-cf.kurly.com/shop/data/goods/16474079356l0.jpg",
+      image: "images/item01.jpg",
       price: "4,980원",
       desc: "두루 활용하기 좋은 올리브오일",
       seller: "컬리",
