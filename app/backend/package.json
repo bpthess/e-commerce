@@ -8,6 +8,8 @@
   },
   "scripts": {
     "start": "node server.js",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
@@ -18,8 +20,7 @@
     "concurrently": "^7.3.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "gh-pages": "^4.0.0",
-    "serve": "^14.0.1"
+    "gh-pages": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
