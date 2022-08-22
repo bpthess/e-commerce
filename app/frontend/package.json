@@ -1,5 +1,6 @@
 {
-  "name": "react-proj",
+  "name": "e-commerce",
+  "homepage": "https://bpthess.github.io/e-commerce",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
     "http-proxy-middleware": "^2.0.6",
     "i18next": "^21.9.1",
     "node-sass": "^7.0.1",
@@ -47,7 +49,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "estlint ./src"
+    "lint": "estlint ./src",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
