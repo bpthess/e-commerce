@@ -49,3 +49,8 @@ app.use(express.static(path.join(__dirname, "frontend/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
 });
+
+app.listen(process.env.PORT || 3000, () => {
+  port = this.address().port;
+  console.log(app.settings.env);
+});
