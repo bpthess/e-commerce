@@ -39,9 +39,11 @@ function App() {
         <Translation />
         <Routes>
           <Route path="/" element={<HomeScreen />} />
+          ? (
           <Route path={getPathProduct.path} element={<ProductScreen />} />
-          <Route path={getPathCart.path} element={<CartScreen />} />
+          <Route path={getPathCart.path} element={<CartScreen />} /> : (
           <Route path="/*" element={<Developing />} />
+          ))
         </Routes>
       </main>
     </BrowserRouter>

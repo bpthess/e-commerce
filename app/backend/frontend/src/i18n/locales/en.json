@@ -28,10 +28,10 @@
   "cart": {
     "IShoppingBasket": "Shopping Basket",
     "IDoneBasketMessage": "Your shopping cart is empty.",
-    "IProductAmount": "Product Amount",
-    "IDeliveryAmount": "Delivery Amount",
-    "IDeliveryCost": "3,000won",
-    "ITotalAmount": "Total Amount",
+    "IProductAmount": "Product",
+    "IDeliveryAmount": "Delivery",
+    "IDeliveryCost": "3,000￦",
+    "ITotalAmount": "Total",
     "ICartCheckout": "Checkout"
   }
 }
