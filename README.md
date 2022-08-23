@@ -69,169 +69,106 @@ npm start
 # 사용한 라이브러리
 
 ```json
-// client/package.json
+// frontend/package.json
 {
-  "name": "wanted-pre-onboarding-challenge-fe-1",
+  "name": "e-commerce",
+  "homepage": "https://bpthess.github.io/e-commerce",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@hookform/error-message": "^2.0.0",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.2", // mui를 이용하여 빠르고 간단한 UI 생성
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/i18next": "^13.0.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.52",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-i18next": "^8.1.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "axios": "^0.27.2",
-    "emotion-reset": "^3.0.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-helmet-async": "^1.3.0", // 동적으로 title 변경
-    "react-hook-form": "^7.34.0", // 여러개의 input을 한 번에 관리 하기 위한 라이브러리
-    "react-query": "^3.39.0", // server state 관리
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.8.5",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0", // 깃허브 배포 라이브러리
+    "http-proxy-middleware": "^2.0.6", // cors 우회 라이브러리
+    "i18next": "^21.9.1", // 다국어 라이브러리
+    "node-sass": "^7.0.1",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0", // 동적으로 사이트 title 변환 라이브러리
+    "react-i18next": "^11.18.4",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
-    "react-toastify": "^9.0.7", // 토스트 메세지를 보여주기위한 라이브러리
-    "zustand": "^4.0.0" // client state 관리
+    "react-scripts": "5.0.1",
+    "scss": "^0.2.4",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.7.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "WATCHPACK_POLLING=true react-scripts start",
+    "dev": "WATCHPACK_POLLING=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "estlint ./src",
+    "deploy": "gh-pages -d build", // 깃허브 페이지에 build 폴더를 배포
+    "predeploy": "npm run build" // 배포 전 build가 되어있지 않다면 build부터 실행
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@types/node": "^18.6.2",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "typescript": "^4.6.3",
-    "vite": "^2.9.9"
+    "@babel/parser": "^7.18.11",
+    "@types/react-helmet-async": "^1.0.3",
+    "babel-eslint": "^10.1.0"
   }
 }
+
 ```
 
 # 폴더 구조
 
-- 여러 의미가 있어 혼란을 주는 폴더 이름 혹은 파일 이름을 사용하지 않도록 했고, 관심사에 따라 최대한 분리할 수 있도록 노력했습니다.
-
-  - **api** : axios 인스턴스 및 api에 관련한 폴더 입니다.
   - **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
-  - **config** : 설정을 위한 폴더입니다.
+  - **error** : 각 페이지 에러를 위한 폴더입니다.
+  - **i18n** : 다국어를 위한 폴더입니다.
   - **hooks** : 커스텀 훅들을 위한 폴더입니다.
   - **pages** : 라우팅되는 페이지들을 위한 폴더입니다.
-  - **router** : 라우팅을 위한 폴더입니다.
-  - **store** : client 상태 관리를 위한 폴더입니다.
-  - **styles** : global style 및 반복적으로 사용되는 스타일을 위한 폴더입니다.
-  - **types** : 여러 곳에서 사용되는 타입을 위한 폴더입니다.
+  - **store** : frontend 상태 관리를 위한 폴더입니다.
   - **utils** : 유틸리티를 위한 폴더입니다.
+  - **variable** : 변수들을 저장하기 위한 폴더입니다.
 
-## 트리
 
-```
-// client
-.
-|-- README.md
-|-- index.html
-|-- package-lock.json
-|-- package.json
-|-- public
-|   `-- favicon.ico
-|-- src
-|   |-- App.tsx
-|   |-- api
-|   |   |-- auth.ts
-|   |   |-- axios.ts
-|   |   `-- toDo.ts
-|   |-- components
-|   |   |-- Auth
-|   |   |   |-- AuthForm.tsx
-|   |   |   `-- types.ts
-|   |   |-- Boundary
-|   |   |   |-- AsyncBoundary.tsx
-|   |   |   `-- ErrorBoundary.tsx
-|   |   |-- Error
-|   |   |   |-- AuthErrorMessage.tsx
-|   |   |   `-- ToDoListError.tsx
-|   |   |-- FloatingButton
-|   |   |   `-- FloatingButton.tsx
-|   |   |-- Header
-|   |   |   |-- Header.tsx
-|   |   |   `-- styled.ts
-|   |   |-- Layout
-|   |   |   |-- Layout.tsx
-|   |   |   |-- styled.ts
-|   |   |   `-- types.ts
-|   |   |-- Loading
-|   |   |   |-- LoadingSpinner
-|   |   |   |   `-- LoadingSpinner.tsx
-|   |   |   `-- Skeleton
-|   |   |       `-- ToDoSkeleton.tsx
-|   |   |-- ProtectRoute
-|   |   |   |-- ProtectAuth.tsx
-|   |   |   |-- ProtectHome.tsx
-|   |   |   `-- types.ts
-|   |   |-- ToDo
-|   |   |   |-- Modal
-|   |   |   |   |-- DeleteModal.tsx
-|   |   |   |   |-- FormModal.tsx
-|   |   |   |   `-- types.ts
-|   |   |   |-- ToDoDetail
-|   |   |   |   `-- ToDoDetail.tsx
-|   |   |   `-- ToDoList
-|   |   |       `-- ToDoList.tsx
-|   |   `-- UpdatedAt
-|   |       |-- UpdatedAt.tsx
-|   |       `-- types.ts
-|   |-- config
-|   |   `-- properties.ts
-|   |-- hooks
-|   |   |-- common
-|   |   |   |-- useCheckIdByURL.ts
-|   |   |   `-- useDate.ts
-|   |   `-- query
-|   |       |-- useCreateToDo.ts
-|   |       |-- useDeleteToDo.ts
-|   |       |-- useGetToDoById.ts
-|   |       |-- useGetToDoList.ts
-|   |       |-- useLogin.ts
-|   |       |-- useSignUp.ts
-|   |       `-- useUpdateToDo.ts
-|   |-- main.tsx
-|   |-- pages
-|   |   |-- Auth.tsx
-|   |   `-- Home.tsx
-|   |-- router
-|   |   `-- router.tsx
-|   |-- store
-|   |   |-- useAuthStore.ts
-|   |   |-- useDeleteModalStore.ts
-|   |   |-- useFormModalStore.ts
-|   |   `-- useToDoStore.ts
-|   |-- styles
-|   |   |-- flex.ts
-|   |   `-- global.tsx
-|   |-- types
-|   |   |-- auth.ts
-|   |   `-- toDo.ts
-|   |-- utils
-|   |   |-- LocalStorage
-|   |   |   |-- getLocalStorage.ts
-|   |   |   |-- removeLocalStorage.ts
-|   |   |   `-- setLocalStorage.ts
-|   |   `-- toast
-|   |       |-- toastMessage.ts
-|   |       `-- useToastMessage.ts
-|   `-- vite-env.d.ts
-|-- tsconfig.json
-|-- tsconfig.node.json
-|-- vite.config.ts
-|-- yarn-error.log
-`-- yarn.lock
-```
+# 진행 시 주안점
 
-# 과제 진행 시 주안점
-
-- 수 개월 뒤에 이 코드를 보더라도 무리없이 코드를 읽어 나갈 수 있을지에 대해 생각하면서
-  코드의 가독성에 주안점을 두고 코드를 작성하고 지속적인 리팩토링을 했습니다.
+- 
 
 # 한계점 및 개선 사항
 
-- 코드 최적화에 대해 좀 더 공부하고 개선해 나가야 합니다.
-- AsyncBoundary를 만들어 Suspense와 에러에 관련된 사항을 한 번에 처리 하려 했지만, 여러 번 렌더링되는 현상을 해결하지 못해 따로 처리했습니다.
+- 
