@@ -1,6 +1,6 @@
 <!-- # Tech Stack -->
 
-# :: 이커머스 마켓컬리 사이트 구현
+# :: 이커머스 사이트 구현
 
 ## ✅ 사용 기술 스택
 - Framework : docker / React.js(v18) / typescript(.js => .ts 진행중)
