@@ -10,8 +10,8 @@
 - Eslint, prettier 적용   
 
 ## 📍 기능 구현
-1. 서버 통신 연결
-2. 상품 장바구니 추가, 조회 기능 구현
+1. 상품 장바구니 추가, 조회 기능 구현
+2. 서버 통신 연결
 3. 다국어 기능 적용
 4. 예정   
 +) CRUD 기능 추가 예정   
@@ -62,17 +62,6 @@ backend
 cd app/backend
 npm start
 ```
-
-# 실행 화면
-
-## Auth
-
-![auth](https://user-images.githubusercontent.com/77968955/185590747-ec2fc0b1-c6f3-4a4d-b3dd-b46afc2da819.gif)
-
-## ToDoList
-
-![todo](https://user-images.githubusercontent.com/77968955/185590758-c228c8c1-4851-4a96-b877-9dbb6ddea14f.gif)
-
 <hr/>
 
 ## Assignment 1 - Login / SignUp
