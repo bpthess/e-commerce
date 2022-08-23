@@ -3,7 +3,7 @@
 # :: 이커머스 마켓컬리 사이트 구현
 
 ## ✅ 사용 기술 스택
-- Framework : React.js(v18) / typescript (.js => .ts 진행중)
+- Framework : docker / React.js(v18) / typescript(.js => .ts 진행중)
 - style : Styled Components
 - 서버 통신 : axios, Fetch
 - 서버 상태 관리 : useReducer + createContext
@@ -13,7 +13,7 @@
 1. 서버 통신 연결
 2. 상품 장바구니 추가, 조회 기능 구현
 3. 다국어 기능 적용
-4. 추가기능   
+4. 예정   
 +) CRUD 기능 추가 예정   
 +) 로그인, 회원가입 기능 추가 예정   
 +) 검색 기능 추가 예정
@@ -29,28 +29,38 @@
 ## 설치 및 환경세팅
 
 ```bash
-git clone https://github.com/sjyoung428/wanted-pre-onboarding-challenge-fe-1.git
-yarn
+git clone https://github.com/bpthess/e-commerce.git
+npm
 ```
 
 ## 실행
 
-client
+dev(concurrently: frontend + backend)
 
 - port: 3000
 
 ```bash
-cd client
-yarn dev
+cd app/backend
+npm run dev
 ```
 
-server
 
-- port: 8080
+frontend
+
+- port: 3000
 
 ```bash
-cd server
-yarn start
+cd app/backend/frontend
+docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce
+```
+
+backend
+
+- port: 8000
+
+```bash
+cd app/backend
+npm start
 ```
 
 # 실행 화면
