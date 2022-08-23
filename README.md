@@ -24,16 +24,16 @@
 ![Zustand](https://img.shields.io/badge/zustand-%2320232a.svg?style=for-the-badge&logo=zustand&logoColor=%2361DAFB)
 ![Mui](https://img.shields.io/badge/mui-%2320232a.svg?style=for-the-badge&logo=mui&logoColor=%2361DAFB) -->
 
-## 🍀 실행 방법
+# 실행 방법
 
-## 설치 및 환경세팅
+## 🍀 설치 및 환경세팅
 
 ```bash
 git clone https://github.com/bpthess/e-commerce.git
 npm
 ```
 
-## 실행
+## 🍀 실행
 
 dev(concurrently: frontend + backend)
 
