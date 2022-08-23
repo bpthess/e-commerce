@@ -24,7 +24,7 @@
 ![Zustand](https://img.shields.io/badge/zustand-%2320232a.svg?style=for-the-badge&logo=zustand&logoColor=%2361DAFB)
 ![Mui](https://img.shields.io/badge/mui-%2320232a.svg?style=for-the-badge&logo=mui&logoColor=%2361DAFB) -->
 
-# 실행 방법
+## 🍀 실행 방법
 
 ## 설치 및 환경세팅
 
@@ -65,7 +65,7 @@ npm start
 
 
 
-# 📌 사용한 라이브러리
+## 📌 사용한 라이브러리
 
 ```json
 // frontend/package.json
@@ -134,7 +134,7 @@ npm start
 
 ```
 
-# 📂 폴더 구조
+## 📂 폴더 구조
 
   - **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
   - **error** : 각 페이지 에러를 위한 폴더입니다.
@@ -146,10 +146,10 @@ npm start
   - **variable** : 변수들을 저장하기 위한 폴더입니다.
 
 
-# ✏️ 진행 시 주안점
+## ✏️ 진행 시 주안점
 
 - 
 
-# ✏️ 한계점 및 개선 사항
+## ✏️ 한계점 및 개선 사항
 
 - 
