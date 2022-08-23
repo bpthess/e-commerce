@@ -1,20 +1,19 @@
 <!-- # Tech Stack -->
 
-# :: [] 이커머스 마켓컬리 사이트 구현
+# :: 이커머스 마켓컬리 사이트 구현
 
 ## ✅ 사용 기술 스택
-- Framework : React.js(v18) / typescript   
-.js => .ts 전환 진행중
+- Framework : React.js(v18) / typescript (.js => .ts 진행중)
 - style : Styled Components
 - 서버 통신 : axios, Fetch
 - 서버 상태 관리 : useReducer + createContext
-+) Eslint, prettier 적용   
-
+- Eslint, prettier 적용   
 
 ## 📍 기능 구현
 1. 서버 통신 연결
 2. 상품 장바구니 추가, 조회 기능 구현
 3. 다국어 기능 적용
+4. +)
 +) 상품 CRUD 기능 추가 예정
 +) 로그인, 회원가입 기능 추가 예정
 +) 검색 기능 추가 예정
