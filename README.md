@@ -106,12 +106,12 @@ npm start
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0", // 동적으로 사이트 title 변환 라이브러리
-    "react-i18next": "^11.18.4",
-    "react-icons": "^4.4.0",
+    "react-i18next": "^11.18.4", // 다국어 라이브러리
+    "react-icons": "^4.4.0", // 아이콘 라이브러리
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "scss": "^0.2.4",
-    "styled-components": "^5.3.5",
+    "styled-components": "^5.3.5", // 스타일 라이브러리
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
