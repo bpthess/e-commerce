@@ -125,24 +125,6 @@ npm start
     "deploy": "gh-pages -d build", // 깃허브 페이지에 build 폴더를 배포
     "predeploy": "npm run build" // 배포 전 build가 되어있지 않다면 build부터 실행
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@babel/parser": "^7.18.11",
     "@types/react-helmet-async": "^1.0.3",
