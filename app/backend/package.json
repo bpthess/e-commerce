@@ -4,12 +4,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "16.15.0"
+    "node": "16.15.0",
+    "npm": "8.5.5"
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },

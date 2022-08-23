@@ -3,8 +3,6 @@ import path from "path";
 import data from "./data.js";
 // import cors from "cors";
 
-const __dirname = path.resolve();
-
 // express 객체 생성
 const app = express();
 
@@ -38,11 +36,13 @@ app.get("/api/products/:id", (req, res) => {
 
 // 기본 포트를 app 객체에 설정
 const port = process.env.PORT || 8000;
+
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
 
 // 리액트 정적 파일 제공
+const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
 // 라우트 설정
@@ -50,7 +50,12 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  port = this.address().port;
-  console.log(app.settings.env);
-});
+/**
+ *  TODO: 헤로쿠 빌드
+ */
+// app.listen(process.env.PORT || 3000, () => {
+//   port = this.address().port;
+//   console.log(app.settings.env);
+// });
+
+// app.set("port", port);
