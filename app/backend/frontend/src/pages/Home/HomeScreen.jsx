@@ -12,7 +12,7 @@ import {
   OnStorageCartButton,
 } from "./HomeStyle";
 import { useTranslation } from "react-i18next";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
@@ -41,7 +41,7 @@ function HomeScreen() {
   // const [isItemHover, setIsItemHover] = useState(false);
 
   // 상태관리 데이터 저장
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
 

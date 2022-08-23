@@ -1,7 +1,7 @@
 import { useEffect, useContext, useReducer } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
@@ -51,7 +51,7 @@ function ProductScreen() {
   const { slug } = params;
 
   // 상태관리 데이터 저장
-  const [{ loading, error, product }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,
     error: "",
