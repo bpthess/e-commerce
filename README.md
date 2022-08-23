@@ -4,11 +4,11 @@
 
 ## ✅ 사용 기술 스택
 - Framework : React.js(v18) / typescript
--> .js => .ts 전환 진행중
 - style : Styled Components
 - 서버 통신 : axios, Fetch
 - 서버 상태 관리 : useReducer + createContext
-+) Eslint, prettier 적용
++) Eslint, prettier 적용   
+.js => .ts 전환 진행중
 
 
 ## 📍 기능 구현
