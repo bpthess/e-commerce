@@ -70,7 +70,7 @@ function ProductScreen() {
         if (response.ok) {
           return response.json();
         }
-        throw new Error("Network response was not ok.");
+        throw new Error("네트워크 오류가 발생했습니다.");
       })
       // 패치 성공
       .then((data) => {

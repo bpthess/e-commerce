@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   Main,
@@ -61,7 +60,7 @@ function HomeScreen() {
         if (response.ok) {
           return response.json();
         }
-        throw new Error("Network response was not ok.");
+        throw new Error("네트워크 오류가 발생했습니다.");
       })
       // 패치 성공
       .then((data) => {
@@ -92,43 +91,45 @@ function HomeScreen() {
       <Helmet>
         <title>{t("helmet.Home")}</title>
       </Helmet>
-      <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
-      <ProductsWrapper>
-        {loading ? (
-          <AppLoading />
-        ) : error ? (
-          <AppError>{error}</AppError>
-        ) : (
-          products.map((product) => {
-            return (
-              <ProductsContainer key={product.slug}>
-                <Link to={`/product/${product.slug}`}>
-                  <ImgContents>
-                    {/* TODO: 이미지 호버 시 대체 이미지 전환, map이여서 배열 전체가 변하게 됨, 해당 갯수만큼 state를 만들거나, src값을 변경하는 코드를 짜야함. */}
-                    {/* <img
+      {loading ? (
+        <AppLoading />
+      ) : error ? (
+        <AppError>{error}</AppError>
+      ) : (
+        <>
+          <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
+          <ProductsWrapper>
+            {products.map((product) => {
+              return (
+                <ProductsContainer key={product.slug}>
+                  <Link to={`/product/${product.slug}`}>
+                    <ImgContents>
+                      {/* TODO: 이미지 안나올 시 텍스트나 임의 이미지 대체, map이여서 배열 전체가 변하게 됨, 해당 갯수만큼 state를 만들거나, src값을 변경하는 코드를 짜야함. */}
+                      {/* <img
                       src={isItemHover ? product.imageHover : product.image}
                       onMouseOver={() => setIsItemHover(true)}
                       onMouseOut={() => setIsItemHover(false)}
                     /> */}
-                    <ImgItem src={product.image} alt={product.name} />
-                  </ImgContents>
-                </Link>
-                <ProductsDesc>
-                  <strong className="tag">{product.tag}</strong>
-                  <Link to={`/product/${product.slug}`}>
-                    <span>{product.name}</span>
+                      <ImgItem src={product.image} alt={product.name} />
+                    </ImgContents>
                   </Link>
-                  <p className="price">{product.price}</p>
-                  <p className="desc">{product.desc}</p>
-                  <OnStorageCartButton onClick={storageCartHandler}>
-                    <BiShoppingBag />
-                  </OnStorageCartButton>
-                </ProductsDesc>
-              </ProductsContainer>
-            );
-          })
-        )}
-      </ProductsWrapper>
+                  <ProductsDesc>
+                    <strong className="tag">{product.tag}</strong>
+                    <Link to={`/product/${product.slug}`}>
+                      <span>{product.name}</span>
+                    </Link>
+                    <p className="price">{product.price}</p>
+                    <p className="desc">{product.desc}</p>
+                    <OnStorageCartButton onClick={storageCartHandler}>
+                      <BiShoppingBag />
+                    </OnStorageCartButton>
+                  </ProductsDesc>
+                </ProductsContainer>
+              );
+            })}
+          </ProductsWrapper>
+        </>
+      )}
     </Main>
   );
 }
