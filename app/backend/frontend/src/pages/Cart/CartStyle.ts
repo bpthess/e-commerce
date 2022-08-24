@@ -9,7 +9,7 @@ export const CartWrapper = styled.div`
 
 export const CartContainer = styled.div`
   display: ${Spacing.select.mark.selectFlex};
-  justify-content: ${(props) =>
+  justify-content: ${(props: any): string =>
     props.isPosition
       ? `${Spacing.select.mark.selectStart}`
       : `${Spacing.select.mark.selectCenter}`};

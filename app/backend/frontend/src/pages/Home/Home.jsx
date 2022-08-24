@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
-import { Store } from "../../Store";
+import { Store } from "../../store/Store";
 import { BiShoppingBag } from "react-icons/bi";
 import getError from "../../utils/Utils";
 

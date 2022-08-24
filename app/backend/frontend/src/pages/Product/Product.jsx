@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/AppError";
 import getError from "../../utils/Utils";
-import { Store } from "../../Store";
+import { Store } from "../../store/Store";
 import {
   Main,
   ProductWrapper,
@@ -135,18 +135,12 @@ function ProductScreen() {
                 <p className="benefit">{t("select.InitLoginAfterBenefits")}</p>
               </ProductDescHeader>
               <ProductDescMiddle>
+                {/* TODO: 3항 연산자 in 배열 */}
                 {/* {Array.isArray(product)
                   ? product.products.map((desc) => {
                       return <li>{desc.tag}</li>;
                     })
                   : null} */}
-                {/* {product &&
-                  product.products.map((product) => {
-                    return <li>{product.tag}</li>;
-                  })} */}
-                {/* {product.map(() => {
-                  return <li>sdsdsd</li>;
-                })} */}
               </ProductDescMiddle>
               <ProductDescBottom>
                 <CartAmountCounter>

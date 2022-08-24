@@ -12,7 +12,7 @@ import {
 } from "./HeaderStyle";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { Store } from "../../Store";
+import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import { useTranslation } from "react-i18next";

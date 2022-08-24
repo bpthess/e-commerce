@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Store } from "../../Store";
+import { Store } from "../../store/Store";
 import { useTranslation } from "react-i18next";
 import {
   CartWrapper,
