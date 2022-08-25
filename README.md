@@ -33,7 +33,7 @@ git clone https://github.com/bpthess/e-commerce.git
 npm
 ```
 
-## 🍀 실행
+## 👉 실행
 
 dev(concurrently: frontend + backend)
 
