@@ -8,13 +8,13 @@
 - 서버 통신 : axios, Fetch
 - 서버 상태 관리 : useReducer + createContext
 - Eslint, prettier 적용   
-<br>
+
 ## 📍 기능 구현
 1. 상품 장바구니 추가, 조회 기능 구현
 2. 서버 통신 연결
 3. 다국어 기능 적용
 4. 예정   
-<br>
+
 ## ✏️ 진행사항
 1. 상품 장바구니 페이지 CRUD 기능 진행중
 2. 로그인, 회원가입 페이지 추가 예정
@@ -28,7 +28,7 @@
 ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
 ![Zustand](https://img.shields.io/badge/zustand-%2320232a.svg?style=for-the-badge&logo=zustand&logoColor=%2361DAFB)
 ![Mui](https://img.shields.io/badge/mui-%2320232a.svg?style=for-the-badge&logo=mui&logoColor=%2361DAFB) -->
-<br>
+
 # 실행 방법
 
 ## 🍀 설치 및 환경세팅
@@ -38,7 +38,7 @@ git clone https://github.com/bpthess/e-commerce.git
 npm
 ```
 
-<br>
+
 ## 👉 실행
 
 dev(concurrently: frontend + backend)
@@ -70,7 +70,7 @@ npm start
 ```
 
 
-<br>
+
 ## 📌 사용한 라이브러리
 
 ```json
@@ -139,7 +139,7 @@ npm start
 }
 
 ```
-<br>
+
 ## 📂 폴더 구조
 
   - **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
@@ -164,7 +164,7 @@ npm start
 res.header("*Access-Controller-Allow-Origin:**")
 ```
 
-<br>
+
 ## ✏️ 한계점 및 개선 사항
 - 설계시 미디어쿼리 고려를 계속 까먹는다는 점…
 - heroku 서버 배포 실패… Docker 환경으로 설계했지만 heroku로 서버 배포 시도했던 점(AWS에서 Docker로 배포가 가능하다는 것을 몰랐었음) 추후 AWS로 배포 시도고려
