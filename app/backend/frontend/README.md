@@ -1,4 +1,4 @@
-# E-COMMERCE Client
+# E-Commerce Client
 
 ## 도커 파일 빌드(업데이트)
 
