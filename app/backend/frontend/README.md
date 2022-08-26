@@ -1,4 +1,4 @@
-# E-COMMERCE FRONTEND PROJECT
+# E-COMMERCE Client
 
 ## 도커 파일 빌드(업데이트)
 
