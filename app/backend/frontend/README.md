@@ -1,15 +1,15 @@
-### E-COMMERCE FRONTEND PROJECT
+## E-COMMERCE FRONTEND PROJECT
 
-### 도커 파일 빌드(업데이트)
+## 도커 파일 빌드(업데이트)
 
 docker build -f Dockerfile.dev -t react-ecommerce ./
 
-### 도커 스타트
+## 도커 스타트
 
 docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce
 
 
-### 커밋 유형
+## 커밋 유형
 
 | 태그 이름 | 설명 |
 | --------- | ---- |
