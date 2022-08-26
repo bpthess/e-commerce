@@ -14,9 +14,14 @@
 2. 서버 통신 연결
 3. 다국어 기능 적용
 4. 예정   
-+) CRUD 기능 추가 예정   
-+) 로그인, 회원가입 기능 추가 예정   
-+) 검색 기능 추가 예정
+
+## ✏️ 진행사항
+1. 상품 장바구니 페이지 CRUD 기능 진행중
+2. 로그인, 회원가입 페이지 추가 예정
+3. 상품 검색 기능 추가 예정
+4. JWT 토큰 방식 추가 예정
+5. 스켈레톤 스크린 추가 예정
+
 
 <!-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -148,9 +153,31 @@ npm start
 
 
 ## ✏️ 진행 시 주안점
+- Docker 사용해보기
+- 디자인 MVC패턴으로 설계하였으나, 상태관리 공부이후 Flex 패턴으로 설계 변경
+- 코드 캡슐화, 은닉화
+- 서버 통신 설계(이해도와 경험부족 으로인해 양질의 코드보다는 서버와 클라 연동만 중점으로 접근)
+- 상태관리 사용해보기(상태 관리 공부와 이해도 부족으로 클론코딩 했습니다. useReducer, createContext 전부 클론코딩)
+- cors 에러를 http-proxy-middleware 라이브러리를 사용하여 우회 해결하였고, header 설정을 전체 도메인을 허용했다는 점(허용된 도메인만 요청하는 방안으로 고려해보기)
 
-- 
+```jsx
+res.header("*Access-Controller-Allow-Origin:**")
+```
+
 
 ## ✏️ 한계점 및 개선 사항
+- 설계시 미디어쿼리 고려를 계속 까먹는다는 점…
+- heroku 서버 배포 실패… Docker 환경으로 설계했지만 heroku로 서버 배포 시도했던 점(AWS에서 Docker로 배포가 가능하다는 것을 몰랐었음) 추후 AWS로 배포 시도고려
+- axios, async-await, try-catch의 개념도 부족으로 인해 통신 요청 과정 중 에러 반환 코드가 중복되어 있음, 리팩토링 필요
+- map함수 안에 map함수를 이중으로 사용하려 했으나 실패.. 우선순위에서 밀려나 추후 다시 도전
+- 3항 연산자와 if문, 옵셔널 체이닝간의 코드 효율성에 대해 생각해보기
+- 상품 장바구니에서 상품 총 금액(실패) + 배송비인 3,000원을 Number(3000) 임의로 구현…
 
-- 
+```
+{cartItems.reduce(
+                    (a, c) =>
+                      c.quantity ? c.quantity * parseFloat(c.price) + a : c + a,
+                    0
+                  ) + Number(3000)}
+```
+
