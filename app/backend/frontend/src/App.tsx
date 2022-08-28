@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductScreen from "./pages/Product/ProductScreen";
-import HomeScreen from "./pages/Home/HomeScreen";
-import CartScreen from "./pages/Cart/CartScreen";
+import Product from "./pages/Product/Product";
+import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
 import i18n from "./i18n";
 import Translation from "./i18n/Translation";
 import Header from "./components/Header";
@@ -38,10 +38,10 @@ function App() {
       <main>
         <Translation />
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
+          <Route path="/" element={<Home />} />
           ? (
-          <Route path={getPathProduct.path} element={<ProductScreen />} />
-          <Route path={getPathCart.path} element={<CartScreen />} /> : (
+          <Route path={getPathProduct.path} element={<Product />} />
+          <Route path={getPathCart.path} element={<Cart />} /> : (
           <Route path="/*" element={<Developing />} />
           ))
         </Routes>

@@ -82,6 +82,7 @@ export const Spacing = {
     headerFormContainerTop: 50,
     headerFormContainerMarinTop: 1,
     headerFormControllerRadius: 5,
+    headerFormControllerFontSize: 12,
     headerBadgeHeigth: 18,
     headerBadgeLineHeigth: 18,
     headerBadgeRight: 13,

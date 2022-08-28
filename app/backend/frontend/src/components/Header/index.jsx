@@ -12,7 +12,7 @@ import {
 } from "./HeaderStyle";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { Store } from "../../Store";
+import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
@@ -39,12 +39,22 @@ const Header = () => {
       return this._href;
     }
   }
+
+  // const NaviData = new Route ([
+  //   {id: 1, name: "header.IHeaderNaviProduct", href: "/"},
+  //   {id: 2, name: "header.IHeaderNaviBestProduct", href: "developing"},
+  //   {id: 3, name: "header.IHeaderNaviThrifty", href: "developing"},
+  //   {id: 4, name: "header.IHeaderNaviBenefit", href: "developing"},
+  // ])
+
   const Navi1 = new Route(1, "header.IHeaderNaviProduct", "/");
   const Navi2 = new Route(2, "header.IHeaderNaviBestProduct", "developing");
   const Navi3 = new Route(3, "header.IHeaderNaviThrifty", "developing");
   const Navi4 = new Route(4, "header.IHeaderNaviBenefit", "developing");
 
-  const NaviData = [Navi1, Navi2, Navi3, Navi4];
+  const NaviData = [{...Navi1}, {...Navi2}, {...Navi3}, {...Navi4}];
+
+
 
   return (
     <Wrap>
@@ -54,14 +64,14 @@ const Header = () => {
             <Link to="/">
               <FiMenu />
               {t("select.Category")}
-            </Link>
+            </Link> 
           </li>
         </ItemsMenu>
         <ItemsNavi>
           {NaviData.map((title) => {
             return (
-              <Link to={title.href} key={title.id}>
-                <li>{t(title.name)}</li>
+              <Link to={title._href} key={title._id}>
+                <li>{t(title._name)}</li>
               </Link>
             );
           })}
