@@ -38,7 +38,7 @@ function App() {
       <main>
         <Translation />
         <Routes>
-          <Route path="/" element={<Home />} /> ? (
+          <Route path="/e-commerce" element={<Home />} /> ? (
           <Route path={getPathProduct.path} element={<Product />} />
           <Route path={getPathCart.path} element={<Cart />} />)
           {/* TODO: 경로 이탈 페이지, 개발 페이지 분리하기 */}
