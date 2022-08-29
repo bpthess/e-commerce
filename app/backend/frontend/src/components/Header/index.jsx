@@ -22,7 +22,7 @@ const Header = () => {
   const { state } = useContext(Store);
   const { cart } = state;
 
-  // 내비게이션 캡슐화, 은닉화
+  // 내비게이션 경로 캡슐화, 은닉화
   class Route {
     constructor(id, name, href) {
       this._id = id;
@@ -40,6 +40,13 @@ const Header = () => {
     }
   }
 
+  /**
+   * 하나의 함수로 묶어서 map으로 리턴 시 [object Object]가 반환됨, 또는 한 단어만 나옴
+   * TODO: 아래 사이트 참고만하여 전개구문(spread syntax)을 이용해서 해결하기
+   * https://okky.kr/articles/570916
+   * https://javascript.info/new-function
+   */
+
   // const NaviData = new Route ([
   //   {id: 1, name: "header.IHeaderNaviProduct", href: "/"},
   //   {id: 2, name: "header.IHeaderNaviBestProduct", href: "developing"},
@@ -52,9 +59,7 @@ const Header = () => {
   const Navi3 = new Route(3, "header.IHeaderNaviThrifty", "developing");
   const Navi4 = new Route(4, "header.IHeaderNaviBenefit", "developing");
 
-  const NaviData = [{...Navi1}, {...Navi2}, {...Navi3}, {...Navi4}];
-
-
+  const NaviData = [{ ...Navi1 }, { ...Navi2 }, { ...Navi3 }, { ...Navi4 }];
 
   return (
     <Wrap>
@@ -64,7 +69,7 @@ const Header = () => {
             <Link to="/">
               <FiMenu />
               {t("select.Category")}
-            </Link> 
+            </Link>
           </li>
         </ItemsMenu>
         <ItemsNavi>

@@ -44,7 +44,7 @@ const reducer = (state, action) => {
   }
 };
 
-function ProductScreen() {
+function Product() {
   const { t } = useTranslation();
   // const navigate = useNavigate();
   const params = useParams();
@@ -186,4 +186,4 @@ function ProductScreen() {
   );
 }
 
-export default ProductScreen;
+export default Product;
