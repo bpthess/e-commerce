@@ -27,6 +27,11 @@ app.get("/api/products/slug/:slug", (req, res) => {
 app.get("/api/products/:id", (req, res) => {
   const product = data.products.find((x) => x._id === req.params._id);
   res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+  );
+  res.header("Content-Type", "application/json");
   if (product) {
     res.send(product);
   } else {

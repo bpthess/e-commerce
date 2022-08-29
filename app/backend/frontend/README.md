@@ -5,7 +5,7 @@
 
 docker build -f Dockerfile.dev -t react-ecommerce ./
 
-## 도커 스타트
+## 도커 실행
 
 docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce
 

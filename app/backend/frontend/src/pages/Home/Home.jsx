@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import { useEffect, useContext, useReducer } from "react";
 import { Link } from "react-router-dom";
 import {
   Main,
@@ -18,6 +18,7 @@ import AppError from "../../error/AppError";
 import { Store } from "../../store/Store";
 import { BiShoppingBag } from "react-icons/bi";
 import getError from "../../utils/Utils";
+import axios from "axios";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -33,26 +34,16 @@ const reducer = (state, action) => {
   }
 };
 
-function HomeScreen() {
+function Home() {
   const { t } = useTranslation();
-
-  // 대체 이미지 state
-  // const [isItemHover, setIsItemHover] = useState(false);
-
-  // 상태관리 데이터 저장
+  // 상태관리 (상품, 로딩, 에러) 관찰
   const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
-
     error: "",
   });
 
   useEffect(() => {
-    /**
-     * TODO:
-     * 통신 요청 과정 중 에러 반환 코드가 중복되어 있음. 리팩토링 필요.
-     */
-
     // 패치 요청
     dispatch({ type: "FETCH_REQUEST" });
     fetch("http://localhost:8000/api/products")
@@ -60,6 +51,10 @@ function HomeScreen() {
         if (response.ok) {
           return response.json();
         }
+        /**
+         * TODO:
+         * 통신 요청 과정 중 에러 반환 코드가 중복되어 있음. 리팩토링 필요.
+         */
         throw new Error("네트워크 오류가 발생했습니다.");
       })
       // 패치 성공
@@ -74,15 +69,27 @@ function HomeScreen() {
 
   // 상품 장바구니 추가
   const { state, dispatch: contextDispatch } = useContext(Store);
-  const { cart } = state;
+  const {
+    cart: { cartItems },
+  } = state;
 
-  const storageCartHandler = async () => {
-    const storageItem = cart.cartItems.find((x) => x._id === products._id);
+  // 상품 추가 핸들러
+  const storageCartHandler = async (item) => {
+    const storageItem = cartItems.find((x) => x._id === item._id);
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
 
+    try {
+      axios.get(`/api/products/${item._id}`);
+    } catch (error) {
+      error(getError(error));
+    }
+    if (item.countInStock < quantity) {
+      window.alert("상품이 품절되었습니다.");
+      return;
+    }
     contextDispatch({
       type: "CART_ADD_ITEM",
-      payload: { ...products, quantity },
+      payload: { ...item, quantity },
     });
   };
 
@@ -120,7 +127,9 @@ function HomeScreen() {
                     </Link>
                     <p className="price">{product.price}</p>
                     <p className="desc">{product.desc}</p>
-                    <OnStorageCartButton onClick={storageCartHandler}>
+                    <OnStorageCartButton
+                      onClick={() => storageCartHandler(product)}
+                    >
                       <BiShoppingBag />
                     </OnStorageCartButton>
                   </ProductsDesc>
@@ -134,4 +143,4 @@ function HomeScreen() {
   );
 }
 
-export default HomeScreen;
+export default Home;

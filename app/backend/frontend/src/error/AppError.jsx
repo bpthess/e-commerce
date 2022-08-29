@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ErrorBoundary = styled.div`
-  & .wrapper {
-    & .label {
-    }
-  }
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 function AppError(props) {

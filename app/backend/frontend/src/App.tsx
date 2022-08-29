@@ -21,6 +21,9 @@ class Path implements Inherit {
 }
 
 function App() {
+  const getPathProduct = new Path("/product/:slug");
+  const getPathCart = new Path("/cart");
+
   useEffect(() => {
     // 다국어 적용
     const appStarted = async () => {
@@ -29,21 +32,17 @@ function App() {
     appStarted();
   }, []);
 
-  const getPathProduct = new Path("/product/:slug");
-  const getPathCart = new Path("/cart");
-
   return (
     <BrowserRouter>
       <Header />
       <main>
         <Translation />
         <Routes>
-          <Route path="/" element={<Home />} />
-          ? (
+          <Route path="/" element={<Home />} /> ? (
           <Route path={getPathProduct.path} element={<Product />} />
-          <Route path={getPathCart.path} element={<Cart />} /> : (
-          <Route path="/*" element={<Developing />} />
-          ))
+          <Route path={getPathCart.path} element={<Cart />} />)
+          {/* TODO: 경로 이탈 페이지, 개발 페이지 분리하기 */}
+          <Route path="*" element={<Developing />} />
         </Routes>
       </main>
     </BrowserRouter>

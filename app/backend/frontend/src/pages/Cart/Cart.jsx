@@ -22,14 +22,56 @@ import {
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
+// import axios from "axios";
 
-function CartScreen() {
+function Cart() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { state, dispatch: contextDispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+
+  // const updateCartHandler = (item, quantity) => {
+  // const { data } = await axios.get(`/api/products/${cartItems.id}`);
+  // if (data.countInStock < quantity) {
+  //   window.alert("Sorry. Product is out of stock");
+  //   return;
+  // }
+  // fetch(`https://localhost:8000//api/products/${item.id}`) {
+  const updateCartHandler = async (item, quantity) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/products/${item._id}`,
+        {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      console.log(err);
+    }
+
+    contextDispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...item, quantity },
+    });
+  };
+
+  const removeItemHandler = (item) => {
+    contextDispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
+
+  const checkoutHandler = () => {
+    navigate("/signin?redirect=/shipping");
+  };
 
   return (
     <>
@@ -57,19 +99,25 @@ function CartScreen() {
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                         <CountOuter>
                           <AmountCountMinusButton
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity - 1)
+                            }
                             disabled={item.quantity === 1}
                           >
                             <BiMinus />
                           </AmountCountMinusButton>
                           <span className="quantity">{item.quantity}</span>
                           <AmountCountPlusButton
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity + 1)
+                            }
                             disabled={item.quantity === item.countInStock}
                           >
                             <BiPlus />
                           </AmountCountPlusButton>
                         </CountOuter>
                         <span className="price">{item.price}</span>
-                        <DeleteButton>
+                        <DeleteButton onClick={() => removeItemHandler(item)}>
                           <MdDelete />
                         </DeleteButton>
                       </ListGroup>
@@ -104,7 +152,10 @@ function CartScreen() {
                   ) + Number(3000)}
                 </TotalGroup>
                 <ListGroup>
-                  <CheckoutButton disabled={cartItems === 0}>
+                  <CheckoutButton
+                    onClick={checkoutHandler}
+                    disabled={cartItems === 0}
+                  >
                     {t("cart.ICartCheckout")}
                   </CheckoutButton>
                 </ListGroup>
@@ -117,4 +168,4 @@ function CartScreen() {
   );
 }
 
-export default CartScreen;
+export default Cart;

@@ -9,6 +9,7 @@ const dataInitState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    // 전역상태 상품 추가
     case "CART_ADD_ITEM": {
       const newItem = action.payload;
       const storageItem = state.cart.cartItems.find(
@@ -23,6 +24,16 @@ function reducer(state, action) {
 
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+
+    // 전역상태 상품 제거
+    case "CART_REMOVE_ITEM": {
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item._id !== action.payload._id
+      );
+
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
+
     default:
       return state;
   }
