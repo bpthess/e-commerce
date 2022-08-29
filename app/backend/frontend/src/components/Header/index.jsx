@@ -54,7 +54,7 @@ const Header = () => {
   //   {id: 4, name: "header.IHeaderNaviBenefit", href: "developing"},
   // ])
 
-  const Navi1 = new Route(1, "header.IHeaderNaviProduct", "/");
+  const Navi1 = new Route(1, "header.IHeaderNaviProduct", "/e-commerce");
   const Navi2 = new Route(2, "header.IHeaderNaviBestProduct", "developing");
   const Navi3 = new Route(3, "header.IHeaderNaviThrifty", "developing");
   const Navi4 = new Route(4, "header.IHeaderNaviBenefit", "developing");
@@ -66,7 +66,7 @@ const Header = () => {
       <Container>
         <ItemsMenu>
           <li>
-            <Link to="/">
+            <Link to="/e-commerce">
               <FiMenu />
               {t("select.Category")}
             </Link>
