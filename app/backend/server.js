@@ -41,14 +41,13 @@ app.get("/api/products/:id", (req, res) => {
 
 // 기본 포트를 app 객체에 설정
 const port = process.env.PORT || 8000;
-
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
 
 // 리액트 정적 파일 제공
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "/frontend/build")));
 
 // 라우트 설정
 app.get("*", (req, res) => {
