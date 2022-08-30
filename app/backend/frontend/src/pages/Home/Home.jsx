@@ -46,7 +46,7 @@ function Home() {
   useEffect(() => {
     // 패치 요청
     dispatch({ type: "FETCH_REQUEST" });
-    fetch("/api/products")
+    fetch("http://localhost:8000/api/products")
       .then((response) => {
         if (response.ok) {
           return response.json();

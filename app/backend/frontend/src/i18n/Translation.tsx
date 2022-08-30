@@ -23,6 +23,10 @@ const LanguageButtonWrapper = styled.div`
   & button {
     padding: 15px;
   }
+
+  @media only screen and (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const KoLanguageButton = styled.button``;

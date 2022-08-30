@@ -12,10 +12,15 @@ export const Wrap = styled.div`
   padding: ${Spacing.header.mark.headerWrapPadding}vw;
   z-index: ${Spacing.header.headerWrapZIndex};
   overflow: ${Spacing.select.mark.selectHidden};
+
+  @media only screen and (max-width: 1024px) {
+    position: absolute;
+    box-shadow: rgb(0 0 0 / 2%) 0px 3px 4px 0px;
+  }
 `;
 
 export const Container = styled.div`
-  min-width: ${Spacing.header.headerContainerMinWidth}px;
+  max-width: ${Spacing.header.headerContainerMaxWidth}px;
   height: ${Spacing.select.mark.selectInhert};
   margin: ${Spacing.select.mark.selectMarginAuto};
   display: ${Spacing.select.mark.selectFlex};
@@ -29,12 +34,16 @@ export const Container = styled.div`
     justify-content: ${Spacing.select.mark.selectCenter};
     align-items: ${Spacing.select.mark.selectCenter};
     font-weight: ${Spacing.select.selectFontWeight500};
+    @media only screen and (max-width: 1024px) {
+      padding: 0 15px;
+    }
   }
 `;
 
 export const ItemsMenu = styled.ul`
   & li {
     display: ${Spacing.select.mark.selectFlex};
+    white-space: ${Spacing.select.mark.selectNowrap};
     & a {
       font-size: ${Spacing.select.selectFontSize16}px;
       & svg {
@@ -49,7 +58,11 @@ export const ItemsMenu = styled.ul`
 
 export const ItemsNavi = styled.ul`
   & li {
-    padding: ${Spacing.header.mark.headerItemsNavi}px;
+    padding: ${Spacing.header.mark.headerItemsNavi}vw;
+    white-space: ${Spacing.select.mark.selectNowrap};
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 `;
 
@@ -66,6 +79,9 @@ export const FormContainer = styled.div`
     transform: ${Spacing.header.mark.headerFormContainerTransform};
     margin-top: ${Spacing.header.headerFormContainerMarinTop}px;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: none;
   }
 `;
 

@@ -65,7 +65,7 @@ function Product() {
 
     // 패치 요청
     dispatch({ type: "FETCH_REQUEST" });
-    fetch(`/api/products/slug/${slug}`)
+    fetch(`http://localhost:8000/api/products/slug/${slug}`)
       .then((response) => {
         if (response.ok) {
           return response.json();

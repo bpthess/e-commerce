@@ -34,7 +34,7 @@ function Cart() {
 
   const updateCartHandler = async (item, quantity) => {
     try {
-      const response = await fetch(`/api/products/${item._id}`, {
+      const response = await fetch(`http://localhost:8000/api/products/${item._id}`, {
         method: "GET",
         headers: {
           accept: "application/json",

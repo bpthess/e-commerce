@@ -75,7 +75,7 @@ export const Spacing = {
     headerWrapHeight: 7,
     headerWrapLineHeight: 7,
     headerWrapZIndex: 3000,
-    headerContainerMinWidth: 1050,
+    headerContainerMaxWidth: 1200,
     headerItemsMenuMarginRight: 20,
     headerItemsMenuMarginTop: 1,
     headerFormContainerRight: 40,
@@ -95,7 +95,7 @@ export const Spacing = {
     mark: {
       headerWrapPadding: "0 15",
       headerContainerPadding: "0 25",
-      headerItemsNavi: "0 30",
+      headerItemsNavi: "0 2",
       headerFormContainerTransform: "translateY(-50%)",
       headerFormControllerPadding: "10px 25px 10px 15px",
       headerItemsIconsPadding: "0 15",
@@ -155,10 +155,10 @@ export const Spacing = {
   cart: {
     cartLabelMessageMarginTop: 10,
     cartLabelMessageSvgPadding: 10,
-    cartContentWidth: 1050,
+    cartContentWidth: 1200,
     cartTotalGroup: 50,
     cartTotalGroupCostMarginLeft: 20,
-    cartListGroupWidth: 80,
+    cartListGroupWidth: 90,
     cartListGroupWidthImg: 80,
 
     mark: {

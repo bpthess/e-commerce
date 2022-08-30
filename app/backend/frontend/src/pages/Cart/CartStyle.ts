@@ -5,6 +5,9 @@ export const CartWrapper = styled.div`
   width: ${Spacing.select.selectNumber100}%;
   height: ${Spacing.select.selectNumber100}%;
   padding: ${Spacing.cart.mark.cartWrapPadding};
+  @media only screen and (max-width: 1024px) {
+    padding: 0;
+  }
 `;
 
 export const CartContainer = styled.div`
@@ -14,6 +17,10 @@ export const CartContainer = styled.div`
       ? `${Spacing.select.mark.selectStart}`
       : `${Spacing.select.mark.selectCenter}`};
   align-items: ${Spacing.select.mark.selectCenter};
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
 `;
 
 export const LabelTitle = styled.h2`
@@ -21,6 +28,9 @@ export const LabelTitle = styled.h2`
   text-align: ${Spacing.select.mark.selectCenter};
   font-size: ${Spacing.select.selectFontSize28}px;
   font-weight: ${Spacing.select.selectFontWeight500};
+  @media only screen and (max-width: 1024px) {
+    padding: 50px 0 28px;
+  }
 `;
 
 export const LabelMessage = styled.label`
@@ -40,9 +50,13 @@ export const LabelMessage = styled.label`
 `;
 export const CartContent = styled.div`
   width: ${Spacing.cart.cartContentWidth}px;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const Total = styled.div`
+  width: 40%;
   border: ${Color.cart.cartBorder};
   padding: ${Spacing.cart.mark.cartTotalPadding};
 `;
@@ -59,7 +73,7 @@ export const TotalGroup = styled.div`
 
 export const CartInner = styled.div`
   display: ${Spacing.select.mark.selectFlex};
-  justify-content: ${Spacing.select.mark.selectCenter};
+  justify-content: ${Spacing.select.mark.selectStart};
 `;
 export const ListGroup = styled.div`
   display: ${Spacing.select.mark.selectFlex};
@@ -69,11 +83,23 @@ export const ListGroup = styled.div`
   padding: ${Spacing.cart.mark.cartListGroupPadding};
   border-top: ${Color.cart.cartBorder};
 
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+    border-top: none;
+    padding: 0 0 15px;
+  }
+
   & a {
     flex: ${Spacing.select.selectNumber1};
   }
   & img {
     width: ${Spacing.cart.cartListGroupWidthImg}px;
+    height: 100%;
+    object-fit: cover;
+    @media only screen and (max-width: 1024px) {
+      width: 80%;
+      margin-bottom: 20px;
+    }
   }
   & .price {
     flex: ${Spacing.select.selectNumber1};
@@ -97,6 +123,11 @@ export const CountOuter = styled.div`
   border-radius: ${Spacing.select.selectRadius3}px;
   display: ${Spacing.select.mark.selectFlex};
   justify-content: ${Spacing.select.mark.selectSpaceAround};
+
+  @media only screen and (max-width: 1024px) {
+    margin: 10px;
+    height: 40px;
+  }
 
   & span {
     font-size: ${Spacing.select.selectFontSize14}px;

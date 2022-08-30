@@ -7,12 +7,18 @@ export const Main = styled.div`
 
 export const ProductWrapper = styled.div`
   width: ${Spacing.product.productWidth}px;
-  min-width: ${Spacing.product.productWidth}px;
   margin: ${Spacing.select.mark.selectMarginAuto};
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const ProductContainer = styled.div`
   display: ${Spacing.select.mark.selectFlex};
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImgContent = styled.div`
@@ -22,6 +28,10 @@ export const ImgContent = styled.div`
 export const DescContent = styled.div`
   flex: ${Spacing.product.productFlex08};
   margin-left: ${Spacing.product.productDescMarginLeft}vw;
+  @media only screen and (max-width: 1024px) {
+    margin-left: 0;
+    margin: 5vw;
+  }
 `;
 
 export const DescInner = styled.div`

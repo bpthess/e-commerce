@@ -3,12 +3,18 @@ import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
   width: ${Spacing.select.selectNumber100}%;
+  @media only screen and (max-width: 1024px) {
+    height: 93vh;
+  }
 `;
 
 export const SectionTitle = styled.h1`
   text-align: ${Spacing.select.mark.selectCenter};
   font-size: ${Spacing.select.selectFontSize28}px;
   font-weight: ${Spacing.select.selectFontWeight500};
+  @media only screen and (max-width: 1024px) {
+    margin-top: 3rem;
+  }
 `;
 
 export const ProductsWrapper = styled.div`
@@ -20,12 +26,18 @@ export const ProductsWrapper = styled.div`
 export const ProductsContainer = styled.div`
   margin: ${Spacing.home.mark.homeContainerMargin};
   overflow: ${Spacing.select.mark.selectHidden};
+  @media only screen and (max-width: 1024px) {
+    margin: 15px 8px;
+  }
 `;
 
 export const ImgContents = styled.div`
   max-width: ${Spacing.home.homeWidth}px;
   height: ${Spacing.home.homeHeight}px;
   overflow: ${Spacing.select.mark.selectHidden};
+  @media only screen and (max-width: 1024px) {
+    max-width: 280px;
+  }
 `;
 
 export const ImgItem = styled.img`
@@ -54,6 +66,10 @@ export const ProductsDesc = styled.div`
   & p.price {
     padding: ${Spacing.home.mark.homePricePadding};
     font-weight: ${Spacing.select.mark.selectBold};
+
+    @media only screen and (max-width: 1024px) {
+      padding: 1px 0 15px;
+    }
   }
 
   & p.desc {
