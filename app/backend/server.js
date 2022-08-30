@@ -27,11 +27,6 @@ app.get("/api/products/slug/:slug", (req, res) => {
 app.get("/api/products/:id", (req, res) => {
   const product = data.products.find((x) => x._id === req.params._id);
   res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, HEAD, POST, PUT, DELETE, OPTIONS"
-  );
-  res.header("Content-Type", "application/json");
   if (product) {
     res.send(product);
   } else {
@@ -53,13 +48,3 @@ app.use(express.static(path.join(__dirname, "/frontend/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
 });
-
-/**
- *  TODO: 헤로쿠 빌드
- */
-// app.listen(process.env.PORT || 3000, () => {
-//   port = this.address().port;
-//   console.log(app.settings.env);
-// });
-
-// app.set("port", port);

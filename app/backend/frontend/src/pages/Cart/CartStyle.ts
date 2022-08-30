@@ -59,6 +59,9 @@ export const Total = styled.div`
   width: 40%;
   border: ${Color.cart.cartBorder};
   padding: ${Spacing.cart.mark.cartTotalPadding};
+  @media only screen and (max-width: 1024px) {
+    width: auto;
+  }
 `;
 
 export const TotalGroup = styled.div`
@@ -74,6 +77,9 @@ export const TotalGroup = styled.div`
 export const CartInner = styled.div`
   display: ${Spacing.select.mark.selectFlex};
   justify-content: ${Spacing.select.mark.selectStart};
+  @media only screen and (max-width: 1024px) {
+    justify-content: ${Spacing.select.mark.selectCenter};
+  }
 `;
 export const ListGroup = styled.div`
   display: ${Spacing.select.mark.selectFlex};

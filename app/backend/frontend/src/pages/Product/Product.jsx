@@ -65,13 +65,14 @@ function Product() {
 
     // 패치 요청
     dispatch({ type: "FETCH_REQUEST" });
-    fetch(`/api/products/slug/${slug}`)
+    fetch(`http://localhost:8000/api/products/slug/${slug}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
         }
         throw new Error("네트워크 오류가 발생했습니다.");
       })
+
       // 패치 성공
       .then((data) => {
         dispatch({ type: "FETCH_SUCCESS", payload: data });
@@ -86,14 +87,14 @@ function Product() {
   const { state, dispatch: contextDispatch } = useContext(Store);
   const { cart } = state;
 
-  const storageCartHandler = async () => {
+  const storageCartHandler = async (product) => {
     const storageItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
 
     // 갯수 추가 & 제한
     const data = () => {
       try {
-        axios.get(`/api/products/${product._id}`);
+        axios.get(`http://localhost:8000/api/products/${product._id}`);
       } catch (error) {
         error(getError(error));
       }
