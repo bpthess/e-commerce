@@ -1,6 +1,6 @@
 import { useEffect, useContext, useReducer } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
 import AppLoading from "../../AppLoading";
@@ -46,7 +46,6 @@ const reducer = (state, action) => {
 
 function Product() {
   const { t } = useTranslation();
-  // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -87,14 +86,14 @@ function Product() {
   const { state, dispatch: contextDispatch } = useContext(Store);
   const { cart } = state;
 
-  const storageCartHandler = async (product) => {
+  const storageCartHandler = async () => {
     const storageItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
 
     // 갯수 추가 & 제한
     const data = () => {
       try {
-        axios.get(`http://localhost:8000/api/products/${product._id}`);
+        axios.get(`http://localhost:8000/api/products/"${product._id}"`);
       } catch (error) {
         error(getError(error));
       }
@@ -107,9 +106,6 @@ function Product() {
       type: "CART_ADD_ITEM",
       payload: { ...product, quantity },
     });
-
-    // 상품 추가 시 이동
-    // navigate("/cart");
   };
 
   return loading ? (
