@@ -32,24 +32,14 @@ function Cart() {
     cart: { cartItems },
   } = state;
 
-  // const updateCartHandler = (item, quantity) => {
-  // const { data } = await axios.get(`/api/products/${cartItems.id}`);
-  // if (data.countInStock < quantity) {
-  //   window.alert("Sorry. Product is out of stock");
-  //   return;
-  // }
-  // fetch(`https://localhost:8000//api/products/${item.id}`) {
   const updateCartHandler = async (item, quantity) => {
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/products/${item._id}`,
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/products/${item._id}`, {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+        },
+      });
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
       }
