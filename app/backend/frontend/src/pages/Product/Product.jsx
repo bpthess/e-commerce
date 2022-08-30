@@ -93,7 +93,7 @@ function Product() {
     // 갯수 추가 & 제한
     const data = () => {
       try {
-        axios.get(`http://localhost:8000/api/products/${product._id}`);
+        axios.get(`/api/products/${product._id}`);
       } catch (error) {
         error(getError(error));
       }
