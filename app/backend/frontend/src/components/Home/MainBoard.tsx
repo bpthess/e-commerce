@@ -15,9 +15,10 @@ import { BiShoppingBag } from "react-icons/bi";
 import getError from "../../error/getError";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/appError";
+import { GlobalData } from "../../types/global";
 
 // 상태관리 케이스
-const reducer = (state, action) => {
+const reducer = (state: any, action: { type: any; payload: any }) => {
   switch (action.type) {
     case "FETCH_REQUEST":
       return { ...state, loading: true };
@@ -41,8 +42,11 @@ const MainBoard = () => {
 
   useEffect(() => {
     // 패치 요청
-    dispatch({ type: "FETCH_REQUEST" });
-    fetch("/api/products")
+    dispatch({
+      type: "FETCH_REQUEST",
+      payload: undefined,
+    });
+    fetch("http://localhost:8000/api/products")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -68,10 +72,15 @@ const MainBoard = () => {
   const {
     cart: { cartItems },
   } = state;
-
+  // const arr: Person[] = [];
   // 상품 추가 핸들러
-  const storageCartHandler = async (item) => {
-    const storageItem = cartItems.find((x) => x._id === item._id);
+  const storageCartHandler = async (item: {
+    _id: string | number;
+    countInStock: number;
+  }) => {
+    const storageItem = cartItems.find(
+      (x: { _id: string }) => x._id === item._id
+    );
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
 
     /**
@@ -80,7 +89,7 @@ const MainBoard = () => {
      */
     try {
       await fetch(`/api/products/${item._id}`);
-    } catch (error) {
+    } catch (error: any) {
       error(getError(error));
     }
     if (item.countInStock < quantity) {
@@ -103,7 +112,7 @@ const MainBoard = () => {
         <>
           <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
           <ProductsWrapper>
-            {products.map((product) => {
+            {products.map((product: GlobalData) => {
               return (
                 <ProductsContainer key={product.slug}>
                   <Link to={`/product/${product.slug}`}>

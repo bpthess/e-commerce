@@ -1,5 +1,18 @@
-import { createContext, useReducer } from "react";
-export const Store = createContext();
+import {
+  createContext,
+  JSXElementConstructor,
+  ReactElement,
+  useReducer,
+} from "react";
+
+// export const Store = createContext();
+
+export interface StoreTypes {
+  state: any;
+  dispatch: any;
+}
+
+export const Store = createContext<StoreTypes>({ state: null, dispatch: null });
 
 const dataInitState = {
   cart: {
@@ -7,7 +20,10 @@ const dataInitState = {
   },
 };
 
-function reducer(state, action) {
+function reducer(
+  state: { cart: { cartItems: any[] } },
+  action: { type: any; payload: { _id: string | number } }
+) {
   switch (action.type) {
     // 전역상태 상품 추가
     case "CART_ADD_ITEM": {
@@ -39,7 +55,9 @@ function reducer(state, action) {
   }
 }
 
-export function StoreProvider(props) {
+export function StoreProvider(props: {
+  children: ReactElement<any, string | JSXElementConstructor<any>>;
+}) {
   const [state, dispatch] = useReducer(reducer, dataInitState);
   const value = { state, dispatch };
   return <Store.Provider value={value}>{props.children}</Store.Provider>;

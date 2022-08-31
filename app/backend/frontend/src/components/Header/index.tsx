@@ -15,11 +15,11 @@ import {
 } from "./Styled";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-
 import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import { RouteData } from "./types";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -27,12 +27,17 @@ const Header = () => {
   const { cart } = state;
 
   // 내비게이션 경로 캡슐화, 은닉화
-  class Route {
-    constructor(id, name, href) {
-      this._id = id;
-      this._name = name;
-      this._href = href;
+  class Route implements RouteData {
+    constructor(
+      private _id: number,
+      private _name: string,
+      private _href: string
+    ) {
+      this._id = this.id;
+      this._name = this.name;
+      this._href = this.href;
     }
+
     get id() {
       return this._id;
     }
@@ -45,25 +50,25 @@ const Header = () => {
   }
 
   /**
-   * 하나의 함수로 묶어서 map으로 리턴 시 [object Object]가 반환됨, 또는 한 단어만 나옴
+   * 하나의 함수로 묶어서 map으로 리턴 시 [object Object]가 반환됨, 또는 한 단어만 나옴, 현재 사용하고 있는 생성자 함수가 옳게 쓰고 있는지 모르겠음,
    * TODO: 아래 사이트 참고만하여 전개구문(spread syntax)을 이용해서 해결하기
    * https://okky.kr/articles/570916
    * https://javascript.info/new-function
    */
 
-  // const NaviData = new Route ([
-  //   {id: 1, name: "header.IHeaderNaviProduct", href: "/"},
-  //   {id: 2, name: "header.IHeaderNaviBestProduct", href: "developing"},
-  //   {id: 3, name: "header.IHeaderNaviThrifty", href: "developing"},
-  //   {id: 4, name: "header.IHeaderNaviBenefit", href: "developing"},
-  // ])
+  // const NaviData = new Route [
+  //   { _id: 1, _name: "header.IHeaderNaviProduct", _href: "/" },
+  //   { _id: 2, _name: "header.IHeaderNaviBestProduct", _href: "developing" },
+  //   { _id: 3, _name: "header.IHeaderNaviThrifty", _href: "developing" },
+  //   { _id: 4, _name: "header.IHeaderNaviBenefit", _href: "developing" },
+  // ];
 
   const Navi1 = new Route(1, "header.IHeaderNaviProduct", "/");
   const Navi2 = new Route(2, "header.IHeaderNaviBestProduct", "developing");
   const Navi3 = new Route(3, "header.IHeaderNaviThrifty", "developing");
   const Navi4 = new Route(4, "header.IHeaderNaviBenefit", "developing");
 
-  const NaviData = [{ ...Navi1 }, { ...Navi2 }, { ...Navi3 }, { ...Navi4 }];
+  const NaviData = [Navi1, Navi2, Navi3, Navi4];
 
   useEffect(() => {
     // 다국어 적용
@@ -76,7 +81,6 @@ const Header = () => {
   return (
     <Wrap>
       <Translation />
-      {/* <FiMenu /> */}
       <Container>
         <ItemsMenu>
           <li>
@@ -89,8 +93,8 @@ const Header = () => {
         <ItemsNavi>
           {NaviData.map((title) => {
             return (
-              <Link to={title._href} key={title._id}>
-                <li>{t(title._name)}</li>
+              <Link to={title.href} key={title.id}>
+                <li>{t(title.name)}</li>
               </Link>
             );
           })}
@@ -113,7 +117,11 @@ const Header = () => {
               <BiShoppingBag />
               {cart.cartItems.length > 0 && (
                 <Badge>
-                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  {cart.cartItems.reduce(
+                    (a: number, c: { quantity: number }): number =>
+                      a + c.quantity,
+                    0
+                  )}
                 </Badge>
               )}
             </Link>

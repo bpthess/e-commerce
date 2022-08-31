@@ -27,9 +27,10 @@ import {
 } from "./Styled";
 import { FiHeart } from "react-icons/fi";
 import { BiBell, BiPlus, BiMinus } from "react-icons/bi";
+import { GlobalData } from "../../types/global";
 
 // 상태관리 케이스
-const reducer = (state, action) => {
+const reducer = (state: any, action: { type: any; payload: undefined }) => {
   switch (action.type) {
     case "FETCH_REQUEST":
       return { ...state, loading: true };
@@ -61,7 +62,10 @@ const ProductList = () => {
      */
 
     // 패치 요청
-    dispatch({ type: "FETCH_REQUEST" });
+    dispatch({
+      type: "FETCH_REQUEST",
+      payload: undefined,
+    });
     fetch(`/api/products/slug/${slug}`)
       .then((response) => {
         if (response.ok) {
@@ -85,14 +89,17 @@ const ProductList = () => {
   const { cart } = state;
 
   const storageCartHandler = async () => {
-    const storageItem = cart.cartItems.find((x) => x._id === product._id);
+    const storageItem = cart.cartItems.find(
+      (x: { _id: string | number }) => x._id === product._id
+    );
     const quantity = storageItem ? storageItem.quantity + 1 : 1;
 
     // 갯수 추가 & 제한
-    const data = () => {
+    /* TODO: data 타입 지정, countInStock 에러 */
+    const data: any = (product: GlobalData) => {
       try {
-        axios.get(`/api/products/${product._id}`);
-      } catch (error) {
+        axios.get(`http://localhost:8000/api/products/${product._id}`);
+      } catch (error: any) {
         error(getError(error));
       }
     };
