@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Color, Spacing } from "../../variable/Spacing";
+import { InnerScreen } from "./types";
 
 export const CartWrapper = styled.div`
   width: ${Spacing.select.selectNumber100}%;
@@ -10,7 +11,7 @@ export const CartWrapper = styled.div`
   }
 `;
 
-export const CartContainer = styled.div`
+export const CartContainer = styled.div<InnerScreen>`
   display: ${Spacing.select.mark.selectFlex};
   justify-content: ${(props: any): string =>
     props.isPosition

@@ -3,25 +3,27 @@
 # :: 이커머스 서비스 구현
 
 ## ✅ 사용 기술 스택
+
 - Framework : docker / React.js(v18) / typescript(.js => .ts 진행중)
 - style : Styled Components
 - 서버 통신 : axios, Fetch
 - 서버 상태 관리 : useReducer + createContext
-- Eslint, prettier 적용   
+- Eslint, prettier 적용
+- 미디어쿼리 반응형 웹 구현
 
 ## 📍 기능 구현
+
 1. 상품 장바구니 추가, 조회 기능 구현
 2. 서버 통신 연결
 3. 다국어 기능 적용
-4. 예정   
 
 ## ☝️ 진행사항
+
 1. 상품 장바구니 페이지 CRUD 기능 진행중
 2. 로그인, 회원가입 페이지 추가 예정
 3. 상품 검색 기능 추가 예정
 4. JWT 토큰 방식 추가 예정
 5. 스켈레톤 스크린 추가 예정
-
 
 <!-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -38,7 +40,6 @@ git clone https://github.com/bpthess/e-commerce.git
 npm
 ```
 
-
 ## 👉 실행
 
 dev(concurrently: frontend + backend)
@@ -49,7 +50,6 @@ dev(concurrently: frontend + backend)
 cd app/backend
 npm run dev
 ```
-
 
 frontend
 
@@ -68,8 +68,6 @@ backend
 cd app/backend
 npm start
 ```
-
-
 
 ## 📌 사용한 라이브러리
 
@@ -137,22 +135,21 @@ npm start
     "babel-eslint": "^10.1.0"
   }
 }
-
 ```
 
 ## 📂 폴더 구조
 
-  - **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
-  - **error** : 각 페이지 에러를 위한 폴더입니다.
-  - **i18n** : 다국어를 위한 폴더입니다.
-  - **hooks** : 커스텀 훅들을 위한 폴더입니다.
-  - **pages** : 라우팅되는 페이지들을 위한 폴더입니다.
-  - **store** : frontend 상태 관리를 위한 폴더입니다.
-  - **utils** : 유틸리티를 위한 폴더입니다.
-  - **variable** : 변수들을 저장하기 위한 폴더입니다.
-
+- **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
+- **error** : 각 페이지 에러를 위한 폴더입니다.
+- **i18n** : 다국어를 위한 폴더입니다.
+- **hooks** : 커스텀 훅들을 위한 폴더입니다.
+- **pages** : 라우팅되는 페이지들을 위한 폴더입니다.
+- **store** : frontend 상태 관리를 위한 폴더입니다.
+- **utils** : 유틸리티를 위한 폴더입니다.
+- **variable** : 변수들을 저장하기 위한 폴더입니다.
 
 ## 🎯 진행 시 주안점
+
 - Docker 사용해보기
 - 디자인 MVC패턴으로 설계하였으나, 상태관리 공부이후 Flex 패턴으로 설계 변경
 - 코드 캡슐화, 은닉화
@@ -161,11 +158,11 @@ npm start
 - cors 에러를 http-proxy-middleware 라이브러리를 사용하여 우회 해결하였고, header 설정을 전체 도메인을 허용했다는 점(허용된 도메인만 요청하는 방안으로 고려해보기)
 
 ```jsx
-res.header("*Access-Controller-Allow-Origin:**")
+res.header("*Access-Controller-Allow-Origin:**");
 ```
 
-
 ## ✏️ 한계점 및 개선 사항
+
 - 설계시 미디어쿼리 고려를 계속 까먹는다는 점…
 - heroku 서버 배포 실패… Docker 환경으로 설계했지만 heroku로 서버 배포 시도했던 점(AWS에서 Docker로 배포가 가능하다는 것을 몰랐었음) 추후 AWS로 배포 시도고려
 - axios, async-await, try-catch의 개념도 부족으로 인해 통신 요청 과정 중 에러 반환 코드가 중복되어 있음, 리팩토링 필요
@@ -180,4 +177,3 @@ res.header("*Access-Controller-Allow-Origin:**")
                     0
                   ) + Number(3000)}
 ```
-

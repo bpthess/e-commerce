@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Key, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../../store/Store";
 import { useTranslation } from "react-i18next";
@@ -21,6 +21,7 @@ import {
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
+import { GlobalData } from "../../types/global";
 
 const CartBasket = () => {
   const { t } = useTranslation();
@@ -30,7 +31,10 @@ const CartBasket = () => {
     cart: { cartItems },
   } = state;
 
-  const updateCartHandler = async (item, quantity) => {
+  const updateCartHandler = async (
+    item: { _id: string | number },
+    quantity: number
+  ) => {
     try {
       /**
        * 404 (Not Found) error
@@ -60,7 +64,7 @@ const CartBasket = () => {
     });
   };
 
-  const removeItemHandler = (item) => {
+  const removeItemHandler = (item: any) => {
     contextDispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
 
@@ -82,7 +86,7 @@ const CartBasket = () => {
         ) : (
           <>
             <CartContent>
-              {cartItems.map((item, index) => {
+              {cartItems.map((item: GlobalData, index: Key | null) => {
                 return (
                   <CartInner key={index}>
                     <ListGroup>
@@ -121,11 +125,15 @@ const CartBasket = () => {
                 <span>{t("cart.IProductAmount")}</span>
                 <div className="cost">
                   {/* TODO: 자동 총금액 계산 기능 구현 실패, 추후 도전 */}
-                  {cartItems.reduce(
-                    (a, c) =>
-                      c.quantity ? c.quantity * parseFloat(c.price) + a : c + a,
-                    0
-                  )}
+                  {
+                    cartItems.reduce(
+                      (a: number, c: { quantity: number; price: string }) =>
+                        c.quantity
+                          ? c.quantity * parseFloat(c.price) + a
+                          : +c + a,
+                      0
+                    ) as number | string
+                  }
                 </div>
               </TotalGroup>
               <TotalGroup>
@@ -134,11 +142,15 @@ const CartBasket = () => {
               </TotalGroup>
               <TotalGroup>
                 <span>{t("cart.ITotalAmount")}</span>
-                {cartItems.reduce(
-                  (a, c) =>
-                    c.quantity ? c.quantity * parseFloat(c.price) + a : c + a,
-                  0
-                ) + Number(3000)}
+                {
+                  (cartItems.reduce(
+                    (a: number, c: { quantity: number; price: string }) =>
+                      c.quantity
+                        ? c.quantity * parseFloat(c.price) + a
+                        : +c + a,
+                    0
+                  ) + Number(3000)) as number | string
+                }
               </TotalGroup>
               <ListGroup>
                 <CheckoutButton
