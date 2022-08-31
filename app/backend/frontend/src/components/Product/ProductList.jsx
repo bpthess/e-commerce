@@ -1,14 +1,13 @@
 import { useEffect, useContext, useReducer } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-// import logger from "use-reducer-logger";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import AppLoading from "../../AppLoading";
-import AppError from "../../error/AppError";
-import getError from "../../utils/Utils";
+import AppError from "../../error/appError";
+import getError from "../../error/getError";
 import { Store } from "../../store/Store";
 import {
-  Main,
   ProductWrapper,
   ProductContainer,
   ImgContent,
@@ -25,8 +24,7 @@ import {
   LoginAfterBenefits,
   TechnicalCheckIcons,
   InStorageCartButton,
-} from "./ProductStyle";
-import { useTranslation } from "react-i18next";
+} from "./Styled";
 import { FiHeart } from "react-icons/fi";
 import { BiBell, BiPlus, BiMinus } from "react-icons/bi";
 
@@ -44,7 +42,7 @@ const reducer = (state, action) => {
   }
 };
 
-function Product() {
+const ProductList = () => {
   const { t } = useTranslation();
   const params = useParams();
   const { slug } = params;
@@ -113,7 +111,7 @@ function Product() {
   ) : error ? (
     <AppError>{error}</AppError>
   ) : (
-    <Main>
+    <>
       <Helmet>
         <title>{product.name}</title>
       </Helmet>
@@ -179,8 +177,8 @@ function Product() {
           </DescContent>
         </ProductContainer>
       </ProductWrapper>
-    </Main>
+    </>
   );
-}
+};
 
-export default Product;
+export default ProductList;

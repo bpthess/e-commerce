@@ -1,7 +1,6 @@
 import { useEffect, useContext, useReducer } from "react";
 import { Link } from "react-router-dom";
 import {
-  Main,
   SectionTitle,
   ProductsWrapper,
   ProductsContainer,
@@ -9,16 +8,13 @@ import {
   ImgItem,
   ProductsDesc,
   OnStorageCartButton,
-} from "./HomeStyle";
+} from "./Styled";
 import { useTranslation } from "react-i18next";
-// import logger from "use-reducer-logger";
-import { Helmet } from "react-helmet-async";
-import AppLoading from "../../AppLoading";
-import AppError from "../../error/AppError";
 import { Store } from "../../store/Store";
 import { BiShoppingBag } from "react-icons/bi";
-import getError from "../../utils/Utils";
-import axios from "axios";
+import getError from "../../error/getError";
+import AppLoading from "../../AppLoading";
+import AppError from "../../error/appError";
 
 // 상태관리 케이스
 const reducer = (state, action) => {
@@ -34,7 +30,7 @@ const reducer = (state, action) => {
   }
 };
 
-function Home() {
+const MainBoard = () => {
   const { t } = useTranslation();
   // 상태관리 (상품, 로딩, 에러) 관찰
   const [{ loading, error, products }, dispatch] = useReducer(reducer, {
@@ -98,10 +94,7 @@ function Home() {
   };
 
   return (
-    <Main>
-      <Helmet>
-        <title>{t("helmet.Home")}</title>
-      </Helmet>
+    <>
       {loading ? (
         <AppLoading />
       ) : error ? (
@@ -143,8 +136,8 @@ function Home() {
           </ProductsWrapper>
         </>
       )}
-    </Main>
+    </>
   );
-}
+};
 
-export default Home;
+export default MainBoard;

@@ -16,7 +16,7 @@ export const CartContainer = styled.div`
     props.isPosition
       ? `${Spacing.select.mark.selectStart}`
       : `${Spacing.select.mark.selectCenter}`};
-  align-items: ${Spacing.select.mark.selectCenter};
+  align-items: ${Spacing.select.mark.selectStart};
   @media only screen and (max-width: 1024px) {
     flex-direction: column;
     padding-bottom: 30px;
@@ -48,6 +48,11 @@ export const LabelMessage = styled.label`
     }
   }
 `;
+export const Main = styled.div`
+  width: ${Spacing.select.selectNumber100}%;
+  height: ${Spacing.select.selectNumber100}%;
+`;
+
 export const CartContent = styled.div`
   width: ${Spacing.cart.cartContentWidth}px;
   @media only screen and (max-width: 1024px) {

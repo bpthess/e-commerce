@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import i18n from "../../i18n";
+import Translation from "../../i18n/Translation";
 import {
   Wrap,
   Container,
@@ -9,9 +12,10 @@ import {
   FormContainer,
   Controller,
   Badge,
-} from "./HeaderStyle";
+} from "./Styled";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+
 import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
@@ -61,8 +65,17 @@ const Header = () => {
 
   const NaviData = [{ ...Navi1 }, { ...Navi2 }, { ...Navi3 }, { ...Navi4 }];
 
+  useEffect(() => {
+    // 다국어 적용
+    const appStarted = async () => {
+      await i18n.changeLanguage();
+    };
+    appStarted();
+  }, []);
+
   return (
     <Wrap>
+      <Translation />
       {/* <FiMenu /> */}
       <Container>
         <ItemsMenu>
