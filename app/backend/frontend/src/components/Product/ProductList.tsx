@@ -27,7 +27,7 @@ import {
 } from "./Styled";
 import { FiHeart } from "react-icons/fi";
 import { BiBell, BiPlus, BiMinus } from "react-icons/bi";
-import { GlobalData, SystemError } from "../../types/global";
+import { GlobalData } from "../../types/global";
 
 // 상태관리 케이스
 const reducer = (state: any, action: { type: any; payload: undefined }) => {
@@ -73,6 +73,7 @@ const ProductList = () => {
         }
         throw new Error("네트워크 오류가 발생했습니다.");
       })
+
       // 패치 성공
       .then((data) => {
         dispatch({ type: "FETCH_SUCCESS", payload: data });
@@ -98,10 +99,8 @@ const ProductList = () => {
     const data: any = (product: GlobalData) => {
       try {
         axios.get(`http://localhost:8000/api/products/${product._id}`);
-        throw new Error(error);
       } catch (error: any) {
-        const err = error as SystemError;
-        getError(err.message);
+        error(getError(error));
       }
     };
     if (data.countInStock < quantity) {

@@ -15,7 +15,7 @@ import { BiShoppingBag } from "react-icons/bi";
 import getError from "../../error/getError";
 import AppLoading from "../../AppLoading";
 import AppError from "../../error/appError";
-import { GlobalData, SystemError } from "../../types/global";
+import { GlobalData } from "../../types/global";
 
 // 상태관리 케이스
 const reducer = (state: any, action: { type: any; payload: any }) => {
@@ -72,7 +72,7 @@ const MainBoard = () => {
   const {
     cart: { cartItems },
   } = state;
-
+  // const arr: Person[] = [];
   // 상품 추가 핸들러
   const storageCartHandler = async (item: {
     _id: string | number;
@@ -89,14 +89,12 @@ const MainBoard = () => {
      */
     try {
       await fetch(`http://localhost:8000/api/products/${item._id}`);
-      throw new Error(error);
-    } catch (error) {
-      if (item.countInStock < quantity) {
-        window.alert("상품이 품절되었습니다.");
-        return;
-      }
-      const err = error as SystemError;
-      getError(err.message);
+    } catch (error: any) {
+      error(getError(error));
+    }
+    if (item.countInStock < quantity) {
+      window.alert("상품이 품절되었습니다.");
+      return;
     }
     contextDispatch({
       type: "CART_ADD_ITEM",

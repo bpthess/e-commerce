@@ -1,1 +1,5 @@
-export interface Inherit {}
+export interface Inherit {
+  id: number;
+  name: string;
+  href: string;
+}

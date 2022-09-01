@@ -23,7 +23,7 @@ const data = {
       tag: "당일배송",
       image:
         "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/16474079356l0.jpg",
-      price: `4,980원`,
+      price: "4,980원",
       desc: "두루 활용하기 좋은 올리브오일",
       seller: "컬리",
       package: "냉장(종이포장)",
@@ -31,7 +31,6 @@ const data = {
       Volume: "45g/450g",
       allergy: "-대두, 우유, 호두 함유",
       countInStock: 10,
-      delivery: 3000,
     },
     {
       _id: 2,

@@ -5,6 +5,10 @@ import { InnerScreen } from "./types";
 export const CartWrapper = styled.div`
   width: ${Spacing.select.selectNumber100}%;
   height: ${Spacing.select.selectNumber100}%;
+  padding: ${Spacing.cart.mark.cartWrapPadding};
+  @media only screen and (max-width: 1024px) {
+    padding: 0;
+  }
 `;
 
 export const CartContainer = styled.div<InnerScreen>`
@@ -58,7 +62,7 @@ export const CartContent = styled.div`
 `;
 
 export const Total = styled.div`
-  width: 30%;
+  width: 40%;
   border: ${Color.cart.cartBorder};
   padding: ${Spacing.cart.mark.cartTotalPadding};
   @media only screen and (max-width: 1024px) {

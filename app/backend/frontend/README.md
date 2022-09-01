@@ -25,7 +25,6 @@ git subtree push --prefix app/backend heroku master
 | 태그 이름 | 설명 |
 | --------- | ---- |
 | Feat | 새로운 기능을 추가할 경우 |
-| Build | 빌드전 추가 코드 수정이 있을 경우 |
 | Fix | 버그를 고친 경우 |
 | Design | CSS, 사용자 UI 수정 |
 | Style | 코드 포맷, lint, 코드 수정이 없는 경우 |
