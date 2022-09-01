@@ -71,6 +71,7 @@ const CartBasket = () => {
   const checkoutHandler = () => {
     navigate("/signin?redirect=/shipping");
   };
+  console.log();
 
   return (
     <CartWrapper>
@@ -124,16 +125,14 @@ const CartBasket = () => {
               <TotalGroup>
                 <span>{t("cart.IProductAmount")}</span>
                 <div className="cost">
-                  {/* TODO: 자동 총금액 계산 기능 구현 실패, 추후 도전 */}
-                  {
-                    cartItems.reduce(
-                      (a: number, c: { quantity: number; price: string }) =>
-                        c.quantity
-                          ? c.quantity * parseFloat(c.price) + a
-                          : +c + a,
+                  {/* TODO: 상품 합계 금액 계산하기*/}
+                  {cartItems.map((item: GlobalData) => {
+                    return cartItems.reduce(
+                      (c: { quantity: number; price: string }) =>
+                        c.quantity ? Number(3000) : "null",
                       0
-                    ) as number | string
-                  }
+                    ) as number | string;
+                  })}
                 </div>
               </TotalGroup>
               <TotalGroup>
@@ -142,14 +141,13 @@ const CartBasket = () => {
               </TotalGroup>
               <TotalGroup>
                 <span>{t("cart.ITotalAmount")}</span>
+                {/* TODO: 상품 합계 금액 + 배송비 계산하기, => 문자열 + 숫자열 = NaN */}
                 {
-                  (cartItems.reduce(
-                    (a: number, c: { quantity: number; price: string }) =>
-                      c.quantity
-                        ? c.quantity * parseFloat(c.price) + a
-                        : +c + a,
+                  cartItems.reduce(
+                    (c: { quantity: number; price: string }) =>
+                      c.quantity ? Number(3000) : "null",
                     0
-                  ) + Number(3000)) as number | string
+                  ) as number | string
                 }
               </TotalGroup>
               <ListGroup>

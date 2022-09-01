@@ -166,7 +166,7 @@ export const Spacing = {
       cartLabelTitlePadding: "110px 0 28px",
       cartLabelMessagePadding: "20px 0",
       cartTotalPadding: "20px 40px",
-      cartListGroupPadding: "10px 0",
+      cartListGroupPadding: "15px",
     },
   },
 };
