@@ -58,10 +58,12 @@ export const ItemsMenu = styled.ul`
 
 export const ItemsNavi = styled.ul`
   & li {
-    padding: ${Spacing.header.mark.headerItemsNavi}vw;
-    white-space: ${Spacing.select.mark.selectNowrap};
-    @media only screen and (max-width: 1024px) {
-      display: none;
+    & a {
+      padding: ${Spacing.header.mark.headerItemsNavi}vw;
+      white-space: ${Spacing.select.mark.selectNowrap};
+      @media only screen and (max-width: 1024px) {
+        display: none;
+      }
     }
   }
 `;

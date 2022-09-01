@@ -33,6 +33,6 @@
     "IDeliveryAmount": "Delivery",
     "IDeliveryCost": "3,000￦",
     "ITotalAmount": "Total",
-    "ICartCheckout": "Checkout"
+    "ICartPurchase": "Purchase"
   }
 }

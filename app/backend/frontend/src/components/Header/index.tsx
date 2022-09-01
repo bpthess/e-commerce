@@ -93,9 +93,9 @@ const Header = () => {
         <ItemsNavi>
           {NaviData.map((title) => {
             return (
-              <Link to={title.href} key={title.id}>
-                <li>{t(title.name)}</li>
-              </Link>
+              <li key={title.id}>
+                <Link to={title.href}>{t(title.name)}</Link>
+              </li>
             );
           })}
         </ItemsNavi>

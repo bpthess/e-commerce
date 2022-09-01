@@ -17,6 +17,7 @@ import {
   AmountCountPlusButton,
   DeleteButton,
   CheckoutButton,
+  PurchaseWrapper,
 } from "./Styled";
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
@@ -152,14 +153,14 @@ const CartBasket = () => {
                   ) + Number(3000)) as number | string
                 }
               </TotalGroup>
-              <ListGroup>
+              <PurchaseWrapper>
                 <CheckoutButton
                   onClick={checkoutHandler}
                   disabled={cartItems === 0}
                 >
-                  {t("cart.ICartCheckout")}
+                  {t("cart.ICartPurchase")}
                 </CheckoutButton>
-              </ListGroup>
+              </PurchaseWrapper>
             </Total>
           </>
         )}

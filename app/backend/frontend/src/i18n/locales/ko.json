@@ -33,6 +33,6 @@
     "IDeliveryAmount": "배송금액",
     "IDeliveryCost": "3,000원",
     "ITotalAmount": "합계금액",
-    "ICartCheckout": "Checkout"
+    "ICartPurchase": "구매하기"
   }
 }
