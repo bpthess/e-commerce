@@ -5,10 +5,6 @@ import { InnerScreen } from "./types";
 export const CartWrapper = styled.div`
   width: ${Spacing.select.selectNumber100}%;
   height: ${Spacing.select.selectNumber100}%;
-  padding: ${Spacing.cart.mark.cartWrapPadding};
-  @media only screen and (max-width: 1024px) {
-    padding: 0;
-  }
 `;
 
 export const CartContainer = styled.div<InnerScreen>`
@@ -38,6 +34,7 @@ export const LabelMessage = styled.label`
   text-align: ${Spacing.select.mark.selectCenter};
   display: ${Spacing.select.mark.selectBlock};
   padding: ${Spacing.cart.mark.cartLabelMessagePadding};
+  margin: ${Spacing.select.mark.selectMarginAuto};
 
   & a {
     display: ${Spacing.select.mark.selectBlock};
@@ -57,16 +54,17 @@ export const Main = styled.div`
 export const CartContent = styled.div`
   width: ${Spacing.cart.cartContentWidth}px;
   @media only screen and (max-width: 1024px) {
-    width: 100%;
+    width: ${Spacing.select.selectNumber100}%;
   }
 `;
 
 export const Total = styled.div`
-  width: 40%;
+  width: 30%;
   border: ${Color.cart.cartBorder};
   padding: ${Spacing.cart.mark.cartTotalPadding};
   @media only screen and (max-width: 1024px) {
-    width: auto;
+    width: ${Spacing.select.mark.selectAuto};
+    margin: ${Spacing.select.mark.selectMarginAuto};
   }
 `;
 
@@ -96,8 +94,8 @@ export const ListGroup = styled.div`
   border-top: ${Color.cart.cartBorder};
 
   @media only screen and (max-width: 1024px) {
-    flex-direction: column;
-    border-top: none;
+    flex-direction: ${Spacing.select.mark.selectFlexColumn};
+    border-top: ${Spacing.select.mark.selectNone};
     padding: 0 0 15px;
   }
 
@@ -106,8 +104,8 @@ export const ListGroup = styled.div`
   }
   & img {
     width: ${Spacing.cart.cartListGroupWidthImg}px;
-    height: 100%;
-    object-fit: cover;
+    height: ${Spacing.select.selectNumber100}%;
+    object-fit: ${Spacing.select.mark.selectCover};
     @media only screen and (max-width: 1024px) {
       width: 80%;
       margin-bottom: 20px;
@@ -116,6 +114,12 @@ export const ListGroup = styled.div`
   & .price {
     flex: ${Spacing.select.selectNumber1};
   }
+`;
+export const PurchaseWrapper = styled.div`
+  width: ${Spacing.select.selectNumber100}%;
+  text-align: ${Spacing.select.mark.selectRight};
+  padding: 15px 0;
+  border-top: ${Color.cart.cartBorder};
 `;
 
 export const DeleteButton = styled.button``;
