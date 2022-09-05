@@ -2,7 +2,18 @@ import styled from "styled-components";
 import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
-  width: ${Spacing.select.selectNumber100}%;
+  max-width: 1200px;
+  height: calc(100vh - 55px);
+  margin: 0px auto;
+  margin-top: 55px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const ProductWrapper = styled.div`

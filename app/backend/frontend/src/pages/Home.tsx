@@ -2,7 +2,7 @@ import { Main } from "../components/Home/Styled";
 import { Helmet } from "react-helmet-async";
 import MainBoard from "../components/Home/MainBoard";
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Helmet>
@@ -13,6 +13,6 @@ function Home() {
       </Main>
     </>
   );
-}
+};
 
 export default Home;

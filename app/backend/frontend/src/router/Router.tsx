@@ -3,6 +3,7 @@ import Developing from "../Developing";
 import Cart from "../pages/Cart";
 import Home from "../pages/Home";
 import Product from "../pages/Product";
+import Sign from "../pages/Sign";
 
 interface Inherit {
   path: string;
@@ -25,7 +26,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} /> ? (
         <Route path={getPathProduct.path} element={<Product />} />
-        <Route path={getPathCart.path} element={<Cart />} />) :
+        <Route path={getPathCart.path} element={<Cart />} />
+        <Route path="/signin" element={<Sign />} />) :
         {/* TODO: 경로 이탈 페이지, 개발 페이지 분리하기 */}
         ( <Route path="*" element={<Developing />} /> )
       </Routes>
