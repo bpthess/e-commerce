@@ -3,6 +3,12 @@ import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
   width: ${Spacing.select.selectNumber100}%;
+  margin-top: 55px !important;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
   @media only screen and (max-width: 1024px) {
     height: 93vh;
   }

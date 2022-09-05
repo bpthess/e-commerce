@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import CartBasket from "../components/Cart/CartBasket";
 import { Main } from "../components/Cart/Styled";
 
-function Cart() {
+const Cart = () => {
   const { t } = useTranslation();
   return (
     <>
@@ -15,6 +15,6 @@ function Cart() {
       </Main>
     </>
   );
-}
+};
 
 export default Cart;

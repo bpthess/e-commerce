@@ -3,8 +3,10 @@ import { Color, Spacing } from "../../variable/Spacing";
 import { InnerScreen } from "./types";
 
 export const CartWrapper = styled.div`
-  width: ${Spacing.select.selectNumber100}%;
+  max-width: 1200px;
+  margin: 0 auto;
   height: ${Spacing.select.selectNumber100}%;
+  margin-top: 55px;
 `;
 
 export const CartContainer = styled.div<InnerScreen>`
@@ -27,6 +29,7 @@ export const LabelTitle = styled.h2`
   font-weight: ${Spacing.select.selectFontWeight500};
   @media only screen and (max-width: 1024px) {
     padding: 50px 0 28px;
+    font-size: 20px;
   }
 `;
 
