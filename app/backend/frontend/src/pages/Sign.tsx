@@ -11,10 +11,12 @@ export const SignWrapper = styled.div`
   text-align: center;
   border: 1px solid #222;
   border-radius: 5px;
-  padding: 50px 80px;
+  padding: 30px 60px 35px;
+  line-height: 2;
 
   & h1 {
     display: block;
+    font-size: 28px;
     margin-bottom: 30px;
   }
 `;
@@ -28,9 +30,10 @@ export const FormContainer = styled.div`
 
 export const Controller = styled.input`
   /* background-color: ${Color.header.headerControllerBgColor}; */
-  border: 0.5px solid darkcyan;
+  border: 0.5px solid darkcyan !important;
   border-radius: 3px;
-  padding: ${Spacing.header.mark.headerFormControllerPadding};
+  /* padding: ${Spacing.header.mark.headerFormControllerPadding}; */
+  padding: 8px 70px 8px 15px;
   font-size: ${Spacing.select.selectFontSize12}px;
 
   ::placeholder {
@@ -40,44 +43,46 @@ export const Controller = styled.input`
   }
 
   :focus {
-    border: 1px solid darkcyan;
-    transition: all 0.1s;
+    transition: all 0.12s;
     box-shadow: 0 0 2px darkcyan;
   }
 `;
 
 export const GoToSignButton = styled.button`
   width: 100%;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  padding: 8px 70px;
   background-color: darkcyan;
   color: #fff;
   margin: 15px 0;
+  border: 1px solid transparent;
   border-radius: 3px;
 
-  :hover {
+  /* :hover {
     transition: 0.2s ease;
     color: darkcyan;
     background-color: #fff;
     border: 1px solid darkcyan;
+  } */
+  :active {
+    background-color: #ccc;
   }
 `;
 
 export const GoToSignUp = styled.div`
   width: 100%;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  padding: 8px 70px;
   text-align: center;
-  background-color: darkcyan;
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 3px;
-  color: #fff;
+  /* color: #fff; */
 
-  :hover {
+  /* :hover {
     transition: 0.2s ease;
     color: darkcyan;
     background-color: #fff;
     border: 1px solid darkcyan;
-  }
+  } */
 `;
 
 const Sign = () => {

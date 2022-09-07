@@ -1,9 +1,11 @@
 import express from "express";
 import path from "path";
-import data from "./data.js";
-// import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import seedRouter from "./routes/seedRoutes.js";
+import productRouter from "./routes/productRoutes.js";
+import userRouter from "./routes/userRoutes.js";
+// import cors from "cors";
 
 dotenv.config();
 
@@ -19,32 +21,15 @@ mongoose
 // express 객체 생성
 const app = express();
 
-// '미들웨어 함수' : products 경로 등록
-app.get("/api/products", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.send(data.products);
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// '미들웨어 함수' : slug 경로 등록
-app.get("/api/products/slug/:slug", (req, res) => {
-  const product = data.products.find((x) => x.slug === req.params.slug);
-  res.header("Access-Control-Allow-Origin", "*");
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "상품을 찾을 수 없습니다." });
-  }
-});
+app.use("/api/seed", seedRouter);
+app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 
-// '미들웨어 함수' : id 경로 등록
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((x) => x._id === req.params._id);
-  res.header("Access-Control-Allow-Origin", "*");
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "상품을 찾을 수 없습니다." });
-  }
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 });
 
 // 기본 포트를 app 객체에 설정
