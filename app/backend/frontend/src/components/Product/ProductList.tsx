@@ -98,7 +98,7 @@ const ProductList = () => {
     /* TODO: data 타입 지정, countInStock 에러 */
     const data: any = (product: GlobalData) => {
       try {
-        axios.get(`http://localhost:8000/api/products/${product._id}`);
+        axios.get(`/api/products/${product._id}`);
       } catch (error: any) {
         error(getError(error));
       }
