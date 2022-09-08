@@ -1,7 +1,11 @@
+import axios from "axios";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Spacing, Color } from "../variable/Spacing";
+
+export const SignForm = styled.form``;
 
 export const SignWrapper = styled.div`
   position: absolute;
@@ -90,6 +94,26 @@ const Sign = () => {
   const redirectInUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectInUrl ? redirectInUrl : "/";
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [{ email, password }, setSign] = useState({ email: "", password: "" });
+
+  const submitHandler = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:8000/api/users/signin",
+        {
+          email,
+          password,
+        }
+      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -97,15 +121,23 @@ const Sign = () => {
       </Helmet>
       <SignWrapper>
         <h1>로그인</h1>
-        <FormContainer>
-          <label>이메일</label>
-          <Controller type="email" required />
-        </FormContainer>
-        <FormContainer>
-          <label>비밀번호</label>
-          <Controller type="password" required></Controller>
-        </FormContainer>
-        <GoToSignButton type="submit">로그인</GoToSignButton>
+        <SignForm onSubmit={submitHandler}>
+          <FormContainer>
+            <label>이메일</label>
+            <Controller
+              type="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>비밀번호</label>
+            <Controller
+              type="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            ></Controller>
+            <GoToSignButton type="submit">로그인</GoToSignButton>
+          </FormContainer>
+        </SignForm>
         <GoToSignUp>
           <Link to={`/signup?redirect=${redirect}`}>회원가입</Link>
         </GoToSignUp>
