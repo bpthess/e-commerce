@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import expressAsyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import { generateToken } from "../utils.js";
+import cors from "cors";
 
 const userRouter = express.Router();
 
@@ -11,8 +12,8 @@ userRouter.post(
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      res.header("Access-Control-Allow-Origin", "*");
       if (bcrypt.compareSync(req.body.password, user.password)) {
+        res.header("Access-Control-Allow-Origin", "*");
         res.send({
           _id: user._id,
           name: user.name,
@@ -26,5 +27,7 @@ userRouter.post(
     res.status(401).send({ message: "Invalid email or password" });
   })
 );
+
+userRouter.use(cors());
 
 export default userRouter;

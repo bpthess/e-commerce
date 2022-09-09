@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
-// import cors from "cors";
+import cors from "cors";
 
 dotenv.config();
 
@@ -46,3 +46,5 @@ app.use(express.static(path.join(__dirname, "/frontend/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
 });
+
+app.use(cors());

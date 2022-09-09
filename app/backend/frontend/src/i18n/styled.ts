@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LanguageButtonWrapper = styled.div`
   position: fixed;
-  right: 20px;
+  left: 20px;
   top: 0;
   display: flex;
   z-index: 3000;

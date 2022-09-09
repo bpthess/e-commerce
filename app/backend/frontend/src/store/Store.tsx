@@ -38,6 +38,8 @@ function reducer(
           )
         : [...state.cart.cartItems, newItem];
 
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
       return { ...state, cart: { ...state.cart, cartItems } };
     }
 
@@ -47,9 +49,18 @@ function reducer(
         (item) => item._id !== action.payload._id
       );
 
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
       return { ...state, cart: { ...state.cart, cartItems } };
     }
 
+    case "USER_SIGNIN":
+      return { ...state, userInfo: action.payload };
+    case "USER_SIGNOUT":
+      return {
+        ...state,
+        userInfo: null,
+      };
     default:
       return state;
   }

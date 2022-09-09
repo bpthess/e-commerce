@@ -12,19 +12,23 @@ import {
   FormContainer,
   Controller,
   Badge,
+  UserWrapper,
+  UserProfile,
 } from "./Styled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { RouteData } from "./types";
+// import userInfo from "../../pages/Sign";
 
 const Header = () => {
   const { t } = useTranslation();
-  const { state } = useContext(Store);
-  const { cart } = state;
+  const navigate = useNavigate();
+  const { state, dispatch: contextDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
 
   // 내비게이션 경로 캡슐화, 은닉화
   class Route implements RouteData {
@@ -78,6 +82,11 @@ const Header = () => {
     appStarted();
   }, []);
 
+  const signoutHandler = () => {
+    contextDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+  };
+
   return (
     <Wrap>
       <Translation />
@@ -127,6 +136,29 @@ const Header = () => {
             </Link>
           </ItemsIconLiTree>
         </ItemsIconUlTree>
+        <UserWrapper>
+          {userInfo ? (
+            <UserProfile title={userInfo.name} id="nav-dropdown">
+              <ul>
+                <li>
+                  <Link to="/profile">{userInfo.name} 님</Link>
+                  <ul>
+                    <li>
+                      <Link to="/orderhistory">주문내역</Link>
+                    </li>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        로그아웃
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </UserProfile>
+          ) : (
+            <Link to="/signin">로그인</Link>
+          )}
+        </UserWrapper>
       </Container>
     </Wrap>
   );

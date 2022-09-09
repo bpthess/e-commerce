@@ -131,3 +131,30 @@ export const Badge = styled.span`
     z-index: ${Spacing.select.selectMinusZindex};
   }
 `;
+
+export const UserWrapper = styled.div`
+  position: fixed;
+  right: 30px;
+  top: 0;
+`;
+
+export const UserProfile = styled.div`
+  & ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    & li {
+      & ul {
+        border: 1px solid #222;
+        padding: 5px 35px 5px 10px;
+        font-size: 13px;
+        border-top: none;
+        align-items: flex-start;
+        & li {
+          line-height: 2.5;
+        }
+      }
+    }
+  }
+`;
