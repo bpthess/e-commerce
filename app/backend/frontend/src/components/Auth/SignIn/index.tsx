@@ -9,10 +9,10 @@ import {
   GoToSignUp,
   SignForm,
   SignWrapper,
-} from "./Styled";
+} from "../Styled";
 import { toast } from "react-toastify";
 
-const Sign = () => {
+const SignIn = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -39,7 +39,6 @@ const Sign = () => {
       navigate(redirect || "/");
     } catch (err) {
       toast.error("아이디 또는 비밀번호가 틀렸습니다.");
-      // alert("아이디 또는 비밀번호가 틀렸습니다.");
     }
   };
 
@@ -79,4 +78,4 @@ const Sign = () => {
   );
 };
 
-export default Sign;
+export default SignIn;

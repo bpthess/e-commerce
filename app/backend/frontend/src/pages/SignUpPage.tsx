@@ -1,18 +1,18 @@
 import { Helmet } from "react-helmet-async";
-import Sign from "../components/Auth/Sign";
-import { Main } from "../components/Auth/Sign/Styled";
+import { Main } from "../components/Auth/Styled";
+import SignUp from "../components/Auth/SignUp";
 
-const SignPage = () => {
+const SignUpPage = () => {
   return (
     <>
       <Helmet>
         <title>로그인</title>
       </Helmet>
       <Main>
-        <Sign />
+        <SignUp />
       </Main>
     </>
   );
 };
 
-export default SignPage;
+export default SignUpPage;
