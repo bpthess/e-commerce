@@ -1,18 +1,18 @@
-import { Main } from "../components/Home/Styled";
 import { Helmet } from "react-helmet-async";
-import MainBoard from "../components/Home/MainBoard";
+import { Main } from "../components/Home/Styled";
+import Home from "../components/Home";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Helmet>
         <title>E-Commerce</title>
       </Helmet>
       <Main>
-        <MainBoard />
+        <Home />
       </Main>
     </>
   );
 };
 
-export default Home;
+export default HomePage;

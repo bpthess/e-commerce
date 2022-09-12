@@ -8,6 +8,7 @@ import {
   ImgItem,
   ProductsDesc,
   OnStorageCartButton,
+  HomeWrapper,
 } from "./Styled";
 import { useTranslation } from "react-i18next";
 import { Store } from "../../store/Store";
@@ -31,7 +32,7 @@ const reducer = (state: any, action: { type: any; payload: any }) => {
   }
 };
 
-const MainBoard = () => {
+const Home = () => {
   const { t } = useTranslation();
   // 상태관리 (상품, 로딩, 에러) 관찰
   const [{ loading, error, products }, dispatch] = useReducer(reducer, {
@@ -110,43 +111,45 @@ const MainBoard = () => {
         <AppError>{error}</AppError>
       ) : (
         <>
-          <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
-          <ProductsWrapper>
-            {products.map((product: GlobalData) => {
-              return (
-                <ProductsContainer key={product.slug}>
-                  <Link to={`/product/${product.slug}`}>
-                    <ImgContents>
-                      {/* TODO: 이미지 안나올 시 텍스트나 임의 이미지 대체, map이여서 배열 전체가 변하게 됨, 해당 갯수만큼 state를 만들거나, src값을 변경하는 코드를 짜야함. */}
-                      {/* <img
+          <HomeWrapper>
+            <SectionTitle>{t("home.IHomeSectionMent")}</SectionTitle>
+            <ProductsWrapper>
+              {products.map((product: GlobalData) => {
+                return (
+                  <ProductsContainer key={product.slug}>
+                    <Link to={`/product/${product.slug}`}>
+                      <ImgContents>
+                        {/* TODO: 이미지 안나올 시 텍스트나 임의 이미지 대체, map이여서 배열 전체가 변하게 됨, 해당 갯수만큼 state를 만들거나, src값을 변경하는 코드를 짜야함. */}
+                        {/* <img
                       src={isItemHover ? product.imageHover : product.image}
                       onMouseOver={() => setIsItemHover(true)}
                       onMouseOut={() => setIsItemHover(false)}
                     /> */}
-                      <ImgItem src={product.image} alt={product.name} />
-                    </ImgContents>
-                  </Link>
-                  <ProductsDesc>
-                    <strong className="tag">{product.tag}</strong>
-                    <Link to={`/product/${product.slug}`}>
-                      <span>{product.name}</span>
+                        <ImgItem src={product.image} alt={product.name} />
+                      </ImgContents>
                     </Link>
-                    <p className="price">{product.price}</p>
-                    <p className="desc">{product.desc}</p>
-                    <OnStorageCartButton
-                      onClick={() => storageCartHandler(product)}
-                    >
-                      <BiShoppingBag />
-                    </OnStorageCartButton>
-                  </ProductsDesc>
-                </ProductsContainer>
-              );
-            })}
-          </ProductsWrapper>
+                    <ProductsDesc>
+                      <strong className="tag">{product.tag}</strong>
+                      <Link to={`/product/${product.slug}`}>
+                        <span>{product.name}</span>
+                      </Link>
+                      <p className="price">{product.price}</p>
+                      <p className="desc">{product.desc}</p>
+                      <OnStorageCartButton
+                        onClick={() => storageCartHandler(product)}
+                      >
+                        <BiShoppingBag />
+                      </OnStorageCartButton>
+                    </ProductsDesc>
+                  </ProductsContainer>
+                );
+              })}
+            </ProductsWrapper>
+          </HomeWrapper>
         </>
       )}
     </>
   );
 };
 
-export default MainBoard;
+export default Home;

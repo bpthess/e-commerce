@@ -24,7 +24,7 @@ import { MdDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { GlobalData } from "../../types/global";
 
-const CartBasket = () => {
+const Cart = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { state, dispatch: contextDispatch } = useContext(Store);
@@ -163,4 +163,4 @@ const CartBasket = () => {
   );
 };
 
-export default CartBasket;
+export default Cart;

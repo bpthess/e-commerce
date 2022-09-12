@@ -88,10 +88,10 @@ export const Spacing = {
     headerFormControllerFontSize: 12,
     headerBadgeHeigth: 18,
     headerBadgeLineHeigth: 18,
-    headerBadgeRight: 13,
-    headerBadgeBottom: 15,
+    headerBadgeRight: 0,
+    headerBadgeBottom: 3,
     headerBadgeZIndex: 100,
-    headerBadgeBeforeLeft: -6,
+    headerBadgeBeforeLeft: -5,
     headerBadgeBeforeWidth: 18,
     headerBadgeBeforeHeight: 18,
 

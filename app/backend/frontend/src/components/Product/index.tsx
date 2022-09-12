@@ -43,7 +43,7 @@ const reducer = (state: any, action: { type: any; payload: undefined }) => {
   }
 };
 
-const ProductList = () => {
+const Product = () => {
   const { t } = useTranslation();
   const params = useParams();
   const { slug } = params;
@@ -188,4 +188,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Product;
