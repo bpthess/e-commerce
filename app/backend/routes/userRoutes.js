@@ -7,6 +7,7 @@ import cors from "cors";
 
 const userRouter = express.Router();
 
+// 로그인 인가
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -28,6 +29,27 @@ userRouter.post(
   })
 );
 
+// 회원가입 인가
+userRouter.post(
+  "/signup",
+  expressAsyncHandler(async (req, res) => {
+    const newUser = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password),
+    });
+    const user = await newUser.save();
+    res.send({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user),
+    });
+  })
+);
+
+// cors 우회
 userRouter.use(cors());
 
 export default userRouter;

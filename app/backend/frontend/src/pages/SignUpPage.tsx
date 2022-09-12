@@ -6,7 +6,7 @@ const SignUpPage = () => {
   return (
     <>
       <Helmet>
-        <title>로그인</title>
+        <title>회원가입</title>
       </Helmet>
       <Main>
         <SignUp />
