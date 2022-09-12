@@ -2,19 +2,9 @@ import styled from "styled-components";
 import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-
-  @media only screen and (max-width: 1024px) {
-    height: 100%;
-  }
-`;
-
-export const ProductWrapper = styled.div`
-  width: ${Spacing.product.productWidth}px;
-  height: 93vh;
-  margin: ${Spacing.select.mark.selectMarginAuto};
+  max-width: 1200px;
+  height: calc(100vh - 55px);
+  margin: 0px auto;
   margin-top: 55px !important;
   display: flex;
   justify-content: center;
@@ -23,6 +13,15 @@ export const ProductWrapper = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 100%;
     height: 100%;
+  }
+`;
+
+export const ProductWrapper = styled.div`
+  width: ${Spacing.product.productWidth}px;
+  margin: ${Spacing.select.mark.selectMarginAuto};
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
   }
 `;
 

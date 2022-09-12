@@ -15,7 +15,7 @@ import {
   UserWrapper,
   UserProfile,
 } from "./Styled";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Store } from "../../store/Store";
 import { FiMapPin, FiHeart, FiMenu } from "react-icons/fi";
@@ -26,7 +26,6 @@ import { RouteData } from "./types";
 
 const Header = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { state, dispatch: contextDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 

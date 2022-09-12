@@ -17,3 +17,17 @@ main {
     height: 100%;
   }
 }
+
+/*********** Toastify Layout ************/
+
+.Toastify__toast-container {
+  width: 350px !important;
+}
+
+.Toastify__progress-bar--error {
+  background-color: darkcyan !important;
+}
+
+.Toastify--animate-icon svg {
+  fill: darkcyan !important;
+}

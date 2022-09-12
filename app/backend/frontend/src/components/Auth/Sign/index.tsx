@@ -10,6 +10,7 @@ import {
   SignForm,
   SignWrapper,
 } from "./Styled";
+import { toast } from "react-toastify";
 
 const Sign = () => {
   const navigate = useNavigate();
@@ -37,7 +38,8 @@ const Sign = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       navigate(redirect || "/");
     } catch (err) {
-      alert("아이디 또는 비밀번호가 틀렸습니다.");
+      toast.error("아이디 또는 비밀번호가 틀렸습니다.");
+      // alert("아이디 또는 비밀번호가 틀렸습니다.");
     }
   };
 

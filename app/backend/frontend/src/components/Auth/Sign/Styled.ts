@@ -19,7 +19,7 @@ export const SignWrapper = styled.div`
   text-align: center;
   border: 1px solid #222;
   border-radius: 5px;
-  padding: 45px 65px 40px;
+  padding: 40px 65px;
   line-height: 2;
 
   & h1 {

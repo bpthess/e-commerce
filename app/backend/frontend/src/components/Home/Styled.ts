@@ -54,13 +54,9 @@ export const ImgContents = styled.div`
 
 export const ImgItem = styled.img`
   width: ${Spacing.select.selectNumber100}%;
-  height: ${Spacing.select.selectNumber100}%;
-  object-fit: ${Spacing.select.mark.selectCover};
-  overflow: ${Spacing.select.mark.selectHidden};
   transition: ${Spacing.home.mark.homeTransition};
 
   :hover {
-    object-fit: ${Spacing.select.mark.selectCover};
     transform: ${Spacing.home.mark.homeHoverScale};
   }
 `;
