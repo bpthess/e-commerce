@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Main } from "../components/Auth/Styled";
-import SignUp from "../components/Auth/SignUp";
+import { Main } from "../components/Sign/Styled";
+import SignUp from "../components/Sign/SignUp";
 
 const SignUpPage = () => {
   return (

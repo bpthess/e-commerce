@@ -5,7 +5,7 @@ import data from "../data.js";
 
 const seedRouter = express.Router();
 
-seedRouter.get("/", async (req, res) => {
+seedRouter.get("/api/seed", async (req, res) => {
   await Product.remove({});
   const createProducts = await Product.insertMany(data.products);
 
