@@ -32,14 +32,11 @@ const SignUp = () => {
     // 회원가입 일치/불일치
     if (password === repeatPassword) {
       try {
-        const { data } = await axios.post(
-          "http://localhost:8000/api/users/signup",
-          {
-            name,
-            email,
-            password,
-          }
-        );
+        const { data } = await axios.post("/api/users/signup", {
+          name,
+          email,
+          password,
+        });
         contextDispatch({ type: "USER_SIGNIN", payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
         navigate(redirect || "/");
