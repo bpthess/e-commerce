@@ -12,7 +12,7 @@ dotenv.config();
 
 // 몽고DB 연동
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("DB에 연결하였습니다.");
   })

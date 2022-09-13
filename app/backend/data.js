@@ -17,7 +17,7 @@ const data = {
   ],
   products: [
     {
-      _id: 1,
+      // _id: 1,
       name: "퓨어 올리브",
       slug: "퓨어 올리브",
       tag: "당일배송",
@@ -33,7 +33,7 @@ const data = {
       countInStock: 10,
     },
     {
-      _id: 2,
+      // _id: 2,
       name: "유기농 찹쌀 1.8kg",
       slug: "유기농 찹쌀 1.8kg",
       tag: "당일배송",
@@ -44,7 +44,7 @@ const data = {
       countInStock: 0,
     },
     {
-      _id: 3,
+      // _id: 3,
       name: "휴대용 칫솔 세트 2종",
       slug: "휴대용 칫솔 세트 2종",
       tag: "당일배송",
@@ -54,7 +54,7 @@ const data = {
       countInStock: 15,
     },
     {
-      _id: 4,
+      // _id: 4,
       name: "알꼬막 짬뽕",
       slug: "알꼬막 짬뽕",
       tag: "당일배송",

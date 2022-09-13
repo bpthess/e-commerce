@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "build": "cd app/backend && npm install && cd frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd frontend && npm install && npm run build",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
