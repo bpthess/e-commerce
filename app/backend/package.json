@@ -10,12 +10,11 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "cd app/backend && npm install && cd frontend && npm install && npm run build",
+    "build": "cd app/backend && npm install && cd app/backend/frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd frontend && npm install && npm run build",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "npm start",
-    "dev:client": "cd client && docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce"
+    "dev:client": "cd frontend && docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce"
   },
   "author": "",
   "license": "ISC",
