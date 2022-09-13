@@ -41,9 +41,7 @@ const Cart = () => {
        * 404 (Not Found) error
        * TODO: 서버에서 id를 못 받아오고 있음, 에러 해결
        */
-      const response = await fetch(
-        `http://localhost:8000/api/products/${item._id}`
-      );
+      const response = await fetch(`/api/products/${item._id}`);
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
       }
