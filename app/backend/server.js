@@ -25,8 +25,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/", seedRouter);
-app.use("/", productRouter);
+app.use("/api/seed", seedRouter);
+app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use(cors());
 app.use((err, req, res, next) => {

@@ -5,13 +5,13 @@ import data from "../data.js";
 
 const seedRouter = express.Router();
 
-seedRouter.get("/api/seed", async (req, res) => {
+seedRouter.get("/", async (req, res) => {
   await Product.remove({});
-  const createProducts = await Product.insertMany(data.products);
-
+  const createdProducts = await Product.insertMany(data.products);
   await User.remove({});
-  const createUsers = await User.insertMany(data.users);
-  res.send({ createProducts, createUsers });
+
+  const createdUsers = await User.insertMany(data.users);
+  res.send({ createdProducts, createdUsers });
 });
 
 export default seedRouter;
