@@ -3,6 +3,11 @@ import { Color, Spacing } from "../../variable/Spacing";
 
 export const Main = styled.div`
   width: ${Spacing.select.selectNumber100}%;
+  height: ${Spacing.select.selectNumber100}vh;
+`;
+
+export const HomeWrapper = styled.div`
+  width: ${Spacing.select.selectNumber100}%;
   margin-top: 55px !important;
   position: absolute;
   left: 50%;
@@ -42,17 +47,16 @@ export const ImgContents = styled.div`
   height: ${Spacing.home.homeHeight}px;
   overflow: ${Spacing.select.mark.selectHidden};
   @media only screen and (max-width: 1024px) {
-    max-width: 280px;
+    max-width: 70vw;
+    height: auto;
   }
 `;
 
 export const ImgItem = styled.img`
   width: ${Spacing.select.selectNumber100}%;
-  overflow: ${Spacing.select.mark.selectHidden};
   transition: ${Spacing.home.mark.homeTransition};
 
   :hover {
-    object-fit: ${Spacing.select.mark.selectCover};
     transform: ${Spacing.home.mark.homeHoverScale};
   }
 `;

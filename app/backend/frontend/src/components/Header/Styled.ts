@@ -14,7 +14,7 @@ export const Wrap = styled.div`
   overflow: ${Spacing.select.mark.selectHidden};
 
   @media only screen and (max-width: 1024px) {
-    position: absolute;
+    position: fixed;
     box-shadow: rgb(0 0 0 / 2%) 0px 3px 4px 0px;
   }
 `;
@@ -105,8 +105,10 @@ export const ItemsIconLiTree = styled.li`
   padding: ${Spacing.header.mark.headerItemsIconsPadding}px;
   font-size: ${Spacing.select.selectFontSize24}px;
   cursor: pointer;
-  :last-child {
-    position: ${Spacing.select.mark.selectRelative};
+  & a {
+    :last-child {
+      position: ${Spacing.select.mark.selectRelative};
+    }
   }
 `;
 
@@ -129,5 +131,37 @@ export const Badge = styled.span`
     width: ${Spacing.header.headerBadgeBeforeWidth}px;
     height: ${Spacing.header.headerBadgeBeforeHeight}px;
     z-index: ${Spacing.select.selectMinusZindex};
+  }
+`;
+
+export const UserWrapper = styled.div`
+  position: fixed;
+  right: 30px;
+  top: -2px;
+`;
+
+export const UserProfile = styled.div`
+  & ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    & li {
+      & ul {
+        border: 1px solid #222;
+        /* padding: 5px 35px 5px 10px; */
+        font-size: 13px;
+        border-top: none;
+        align-items: center;
+        & li {
+          line-height: 2.5;
+          padding: 5px 20px;
+          :hover {
+            background-color: darkcyan;
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 `;

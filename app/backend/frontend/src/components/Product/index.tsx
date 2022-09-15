@@ -43,7 +43,7 @@ const reducer = (state: any, action: { type: any; payload: undefined }) => {
   }
 };
 
-const ProductList = () => {
+const Product = () => {
   const { t } = useTranslation();
   const params = useParams();
   const { slug } = params;
@@ -66,7 +66,7 @@ const ProductList = () => {
       type: "FETCH_REQUEST",
       payload: undefined,
     });
-    fetch(`http://localhost:8000/api/products/slug/${slug}`)
+    fetch(`/api/products/slug/${slug}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -98,7 +98,7 @@ const ProductList = () => {
     /* TODO: data 타입 지정, countInStock 에러 */
     const data: any = (product: GlobalData) => {
       try {
-        axios.get(`http://localhost:8000/api/products/${product._id}`);
+        axios.get(`/api/products/${product._id}`);
       } catch (error: any) {
         error(getError(error));
       }
@@ -188,4 +188,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Product;

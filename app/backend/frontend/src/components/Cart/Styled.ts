@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { Color, Spacing } from "../../variable/Spacing";
 import { InnerScreen } from "./types";
 
+export const Main = styled.div`
+  width: ${Spacing.select.selectNumber100}%;
+  height: ${Spacing.select.selectNumber100}vh;
+  overflow: hidden;
+  @media only screen and (max-width: 1024px) {
+    height: ${Spacing.select.selectNumber100}%;
+  }
+`;
+
 export const CartWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -28,8 +37,7 @@ export const LabelTitle = styled.h2`
   font-size: ${Spacing.select.selectFontSize28}px;
   font-weight: ${Spacing.select.selectFontWeight500};
   @media only screen and (max-width: 1024px) {
-    padding: 50px 0 28px;
-    font-size: 20px;
+    padding: 100px 0 28px;
   }
 `;
 
@@ -48,10 +56,6 @@ export const LabelMessage = styled.label`
       box-sizing: ${Spacing.select.mark.selectContentBox};
     }
   }
-`;
-export const Main = styled.div`
-  width: ${Spacing.select.selectNumber100}%;
-  height: ${Spacing.select.selectNumber100}%;
 `;
 
 export const CartContent = styled.div`

@@ -8,6 +8,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -15,4 +16,18 @@ main {
     width: 100%;
     height: 100%;
   }
+}
+
+/*********** Toastify Layout ************/
+
+.Toastify__toast-container {
+  width: 350px !important;
+}
+
+.Toastify__progress-bar--error {
+  background-color: darkcyan !important;
+}
+
+.Toastify--animate-icon svg {
+  fill: darkcyan !important;
 }

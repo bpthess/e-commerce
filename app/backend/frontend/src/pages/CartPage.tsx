@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
-import CartBasket from "../components/Cart/CartBasket";
 import { Main } from "../components/Cart/Styled";
+import Cart from "../components/Cart";
 
-const Cart = () => {
+const CartPage = () => {
   const { t } = useTranslation();
   return (
     <>
@@ -11,10 +11,10 @@ const Cart = () => {
         <title>{t("helmet.Cart")}</title>
       </Helmet>
       <Main>
-        <CartBasket />
+        <Cart />
       </Main>
     </>
   );
 };
 
-export default Cart;
+export default CartPage;
