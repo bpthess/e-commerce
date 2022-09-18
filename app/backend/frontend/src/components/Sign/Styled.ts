@@ -77,6 +77,7 @@ export const GoToSignButton = styled.button`
   border: 1px solid transparent;
   border-radius: 3px;
   display: block;
+  white-space: nowrap;
 
   :active {
     background-color: #ccc;
