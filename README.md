@@ -4,26 +4,33 @@
 
 ## ✅ 사용 기술 스택
 
-- Framework : docker / React.js(v18) / typescript(.js => .ts 진행중)
-- style : Styled Components
-- 서버 통신 : axios, Fetch
-- 서버 상태 관리 : useReducer + createContext
-- Eslint, prettier 적용
-- 미디어쿼리 반응형 웹 구현
+- Framework : Docker / React.js(v18) / TypeScript
+- 상태 관리 : useReducer + Context API
+- 서버 통신 :  Fetch, Express, MongoDB
+- 스타일 : Styled Components
+- 배포 : Heroku, GithubPage
+- Eslint, Prettier 적용
+- 보안 : Bcrypt
+
 
 ## 📍 기능 구현
 
-1. 상품 장바구니 추가, 조회 기능 구현
-2. 서버 통신 연결
-3. 다국어 기능 적용
+1. GET 통신으로 저장된 상품 데이터 파싱
+2. 상품 장바구니 페이지 CRUD 기능 구현
+3. express와 fetch로 서버 통신 연결
+4. JWT 토큰으로 회원 데이터 파싱
+5. 미디어쿼리 반응형 웹
+6. 다국어 기능 적용
+7. heroku 배포
 
 ## ☝️ 진행사항
 
-1. 상품 장바구니 페이지 CRUD 기능 진행중
-2. 로그인, 회원가입 페이지 추가 예정
-3. 상품 검색 기능 추가 예정
-4. JWT 토큰 방식 추가 예정
-5. 스켈레톤 스크린 추가 예정
+1. 더 좁은 타입 범위와 any 간소화(진행중)
+2. 새로고침시 데이터 유지(진행중)
+3. 결제 페이지 구현 예정
+4. 스켈레톤 스크린 예정
+5. 상품 검색 기능 예정
+6. 지불 페이지 예정
 
 <!-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -36,8 +43,8 @@
 ## 🍀 설치 및 환경세팅
 
 ```bash
-git clone https://github.com/bpthess/e-commerce.git
-npm
+-> git clone https://github.com/bpthess/e-commerce.git
+-> npm install
 ```
 
 ## 👉 실행
@@ -47,8 +54,8 @@ dev(concurrently: frontend + backend)
 - port: 3000
 
 ```bash
-cd app/backend
-npm run dev
+-> cd app/backend
+-> npm run dev
 ```
 
 frontend
@@ -56,8 +63,8 @@ frontend
 - port: 3000
 
 ```bash
-cd app/backend/frontend
-docker run -it -p 3000:3000 -v /usr/src/app/node_modules -e CHOKIDAR_USEPOLLING=true -v ${pwd}:/usr/src/app react-ecommerce
+-> cd app/backend/frontend
+-> npm start
 ```
 
 backend
@@ -65,8 +72,8 @@ backend
 - port: 8000
 
 ```bash
-cd app/backend
-npm start
+-> cd app/backend
+-> npm start
 ```
 
 ## 📌 사용한 라이브러리
@@ -114,6 +121,7 @@ npm start
     "react-icons": "^4.4.0", // 아이콘 라이브러리
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.8", // 알림 ui 라이브러리
     "scss": "^0.2.4",
     "styled-components": "^5.3.5", // 스타일 라이브러리
     "typescript": "^4.7.4",
@@ -142,38 +150,63 @@ npm start
 - **components** : 어플리케이션을 구성하는 컴포넌트를 위한 폴더입니다.
 - **error** : 각 페이지 에러를 위한 폴더입니다.
 - **i18n** : 다국어를 위한 폴더입니다.
-- **hooks** : 커스텀 훅들을 위한 폴더입니다.
+- **types** : 타입스크립트의 타입들을 위한 폴더입니다.
 - **pages** : 라우팅되는 페이지들을 위한 폴더입니다.
-- **store** : frontend 상태 관리를 위한 폴더입니다.
-- **utils** : 유틸리티를 위한 폴더입니다.
+- **store** : 상태 관리를 위한 폴더입니다.
 - **variable** : 변수들을 저장하기 위한 폴더입니다.
 
 ## 🎯 진행 시 주안점
 
-- Docker 사용해보기
-- 디자인 MVC패턴으로 설계하였으나, 상태관리 공부이후 Flex 패턴으로 설계 변경
-- 코드 캡슐화, 은닉화
-- 서버 통신 설계(이해도와 경험부족 으로인해 양질의 코드보다는 서버와 클라 연동만 중점으로 접근)
 - 상태관리 사용해보기(상태 관리 공부와 이해도 부족으로 클론코딩 했습니다. useReducer, createContext 전부 클론코딩)
-- cors 에러를 http-proxy-middleware 라이브러리를 사용하여 우회 해결하였고, header 설정을 전체 도메인을 허용했다는 점(허용된 도메인만 요청하는 방안으로 고려해보기)
-
-```jsx
-res.header("*Access-Controller-Allow-Origin:**");
-```
+- 프론트엔드 설계(이해도와 경험부족 으로인해 양질의 코드보다는 기능 구현을 중점으로 접근)
+- Docker 사용해보기
+- 코드 캡슐화, 은닉화
 
 ## ✏️ 한계점 및 개선 사항
 
-- 설계시 미디어쿼리 고려를 계속 까먹는다는 점…
-- heroku 서버 배포 실패… Docker 환경으로 설계했지만 heroku로 서버 배포 시도했던 점(AWS에서 Docker로 배포가 가능하다는 것을 몰랐었음) 추후 AWS로 배포 시도고려
-- axios, async-await, try-catch의 개념도 부족으로 인해 통신 요청 과정 중 에러 반환 코드가 중복되어 있음, 리팩토링 필요
-- map함수 안에 map함수를 이중으로 사용하려 했으나 실패.. 우선순위에서 밀려나 추후 다시 도전
-- 3항 연산자와 if문, 옵셔널 체이닝간의 코드 효율성에 대해 생각해보기
-- 상품 장바구니에서 상품 총 금액(실패) + 배송비인 3,000원을 Number(3000) 임의로 구현…
+- 하나의 함수로 묶어서 map으로 리턴 시 [object Object]가 반환됨, 또는 한 단어만 나옴, 현재 사용하고 있는 생성자 함수가 옳게 쓰고 있는지 모르겠음, 아래 사이트 참고만하여 전개구문(spread syntax)을 이용해서 해결하기
+    
+    ```tsx
+    const NaviData = new Route [
+        { _id: 1, _name: "${name1}", _href: "/1" },
+        { _id: 2, _name: "${name2}", _href: "/2" },
+        { _id: 3, _name: "${name3}", _href: "/3" },
+        { _id: 4, _name: "${name4}", _href: "/4" },
+      ];
+    ```
 
-```
-{cartItems.reduce(
-                    (a, c) =>
-                      c.quantity ? c.quantity * parseFloat(c.price) + a : c + a,
-                    0
-                  ) + Number(3000)}
-```
+- cors 에러를 http-proxy-middleware 라이브러리를 사용하여 우회 해결하였고, header 설정을 전체 도메인을 허용했다는 점(허용된 도메인만 요청하는 방안으로 고려해보기)
+    
+    ```jsx
+    res.header("*Access-Controller-Allow-Origin:**")
+    ```
+    
+- 상품 장바구니에서 상품 총 금액 구현 실패, 이유는 같은 타입이 아닌 number + string로 받아오기 때문, 문자열을 숫자로 바꿔주는 parseFloat을 써도 안됨
+    
+    ```
+    cartItems.reduce(
+        (a: number, c: { quantity: number; price: string }) =>
+          c.quantity
+            ? c.quantity * parseFloat(c.price) + a
+            : +c + a,
+        0
+      ) as number | string
+    ```
+    
+- 이미지 안나올 시 텍스트나 임의 이미지 대체, map이여서 배열 전체가 변하게 됨, 해당 갯수만큼 state를 만들거나, src값을 변경하는 코드를 짜야함
+    
+    ```
+    <img
+        src={isItemHover ? product.imageHover : product.image}
+        onMouseOver={() => setIsItemHover(true)}
+        onMouseOut={() => setIsItemHover(false)}
+    />
+    ```
+    
+- 상품 장바구니 추가, 상품 수량 추가 기능 구현에서 기능은 작동하나 콘솔창에 404에러가 찍힘, 경로와 id는 맞게 찍혀있으나 number로 받아오는게 아닌 string으로 받아서 나오는 에러로 추정
+- map함수 안에 map함수를 이중으로 사용하려 했으나 구현 실패, new 연산자를 사용한 새로운 객체 생성으로 시도 예정
+- dockerfile로 로컬에 도커 사용을 하고있으나 맞게 사용하고 있는지는 모르겠음
+- 통신 요청 과정 중 코드 활용 부족으로 인해 에러 반환 코드가 중복되어 있음
+- 3항 연산자와 if문, 옵셔널 체이닝간의 코드 효율성에 대해 생각해보기
+- 경로 이탈 페이지, 개발 페이지 분리하기
+- 설계시 미디어쿼리 고려를 계속 까먹음
