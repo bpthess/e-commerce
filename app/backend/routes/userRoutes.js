@@ -25,7 +25,7 @@ userRouter.post(
         return;
       }
     }
-    res.status(401).send({ message: "Invalid email or password" });
+    res.status(401).send({ message: "아이디 또는 비밀번호가 틀렸습니다." });
   })
 );
 
