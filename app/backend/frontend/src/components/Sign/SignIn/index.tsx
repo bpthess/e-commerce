@@ -28,7 +28,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/users/signin",
+        "/api/users/signin",
         {
           email,
           password,
