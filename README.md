@@ -15,6 +15,7 @@
 
 ## 📍 기능 구현
 
+1. 로그인(관리자 계정: user@example.com / 123456)
 1. GET 통신으로 저장된 상품 데이터 파싱
 2. 상품 장바구니 페이지 CRUD 기능 구현
 3. express와 fetch로 서버 통신 연결
@@ -23,14 +24,16 @@
 6. 다국어 기능 적용
 7. heroku 배포
 
+
 ## ☝️ 진행사항
 
 1. 더 좁은 타입 범위와 any 간소화(진행중)
-2. 새로고침시 데이터 유지(진행중)
-3. 결제 페이지 구현 예정
-4. 스켈레톤 스크린 예정
-5. 상품 검색 기능 예정
-6. 지불 페이지 예정
+2. 회원가입시 비밀번호 오류 에러(진행중)
+3. 새로고침시 데이터 유지
+4. 결제 페이지 구현 예정
+5. 스켈레톤 스크린 예정
+6. 상품 검색 기능 예정
+7. 지불 페이지 예정
 
 <!-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
