@@ -30,8 +30,11 @@ export const SectionTitle = styled.h1`
 
 export const ProductsWrapper = styled.div`
   display: ${Spacing.select.mark.selectFlex};
-  flex-wrap: ${Spacing.select.mark.selectFlexWrap};
+  flex-wrap: ${Spacing.select.mark.selectNowrap};
   justify-content: ${Spacing.select.mark.selectCenter};
+  @media only screen and (max-width: 1024px) {
+    flex-wrap: ${Spacing.select.mark.selectFlexWrap};
+  }
 `;
 
 export const ProductsContainer = styled.div`

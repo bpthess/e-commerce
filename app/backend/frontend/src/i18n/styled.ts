@@ -19,7 +19,9 @@ export const LanguageButtonWrapper = styled.div`
   }
 
   & button {
-    padding: 18px;
+    padding: 0 15px;
+    height: 7vh;
+    line-height: 7vh;
   }
 
   @media only screen and (max-width: 1200px) {
