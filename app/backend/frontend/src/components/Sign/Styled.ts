@@ -14,12 +14,12 @@ export const SignForm = styled.form``;
 export const SignWrapper = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: calc(50% + 3.5vh);
   transform: translate(-50%, -50%);
   text-align: center;
   border: 1px solid #222;
   border-radius: 5px;
-  padding: 40px;
+  padding: 30px 60px;
   line-height: 2;
 
   & h1 {
@@ -37,7 +37,7 @@ export const SignWrapper = styled.div`
 `;
 
 export const SignUpWrapper = styled(SignWrapper)`
-  padding: 30px 55px;
+  padding: 30px;
 `;
 
 export const FormContainer = styled.div`
@@ -70,7 +70,7 @@ export const Controller = styled.input`
 
 export const GoToSignButton = styled.button`
   width: 100%;
-  padding: 10px 130px;
+  padding: 8px;
   background-color: darkcyan;
   color: #fff;
   margin: 15px 0;
@@ -85,7 +85,7 @@ export const GoToSignButton = styled.button`
 `;
 
 export const GoToSignUpButton = styled(GoToSignButton)`
-  padding: 10px 70px;
+  padding: 8px 0;
 `;
 
 export const GoToSignUp = styled.div`
