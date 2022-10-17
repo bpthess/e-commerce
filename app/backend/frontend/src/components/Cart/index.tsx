@@ -47,8 +47,8 @@ const Cart = () => {
       }
       const result = await response.json();
       return result;
-    } catch (err) {
-      console.log(err);
+    } catch (Error) {
+      console.log(Error);
     }
 
     contextDispatch({

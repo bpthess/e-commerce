@@ -35,14 +35,16 @@ const Header = () => {
       private _id: number,
       private _name: string,
       private _href: string
-    ) {
-      this._id = this.id;
-      this._name = this.name;
-      this._href = this.href;
-    }
+    ) {}
 
     get id() {
       return this._id;
+    }
+    set id(value) {
+      if(value > 10) {
+        console.log('에러 테스트')
+      }
+      this._id = value 
     }
     get name() {
       return this._name;

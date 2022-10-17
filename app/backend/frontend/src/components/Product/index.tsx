@@ -60,7 +60,7 @@ const Product = () => {
      * TODO:
      *  API 요청하는 과정 중 에러 반환 코드가 중복되어 있음. 리팩토링 필요.
      */
- 
+
     // 패치 요청
     dispatch({
       type: "FETCH_REQUEST",

@@ -49,7 +49,7 @@ userRouter.post(
   })
 );
 
-// cors 우회
+// cors 개통
 userRouter.use(cors());
 
 export default userRouter;
